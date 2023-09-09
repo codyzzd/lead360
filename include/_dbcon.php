@@ -1,9 +1,9 @@
 <?php
 // Configurações do banco de dados
-$host = 'sql200.infinityfree.com';         // Nome do servidor MySQL (geralmente 'localhost')
-$database = 'if0_34821014_lead360'; // Nome do banco de dados
-$username = 'if0_34821014';   // Nome de usuário do MySQL
-$password = 'daEPMi3ZKE8AK0';     // Senha do MySQL
+$host = 'srv1078.hstgr.io'; // Nome do servidor MySQL (geralmente 'localhost')
+$database = 'u361508053_liderscan'; // Nome do banco de dados
+$username = 'u361508053_liderscan'; // Nome de usuário do MySQL
+$password = 'g7[Wp8/*=S@'; // Senha do MySQL
 
 // Conexão com o banco de dados
 $conn = new mysqli($host, $username, $password, $database);
