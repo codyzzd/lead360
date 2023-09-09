@@ -1,4 +1,4 @@
-<? include '../include/_a_check_login.php' ?>
+<?php include '../include/_a_check_login.php' ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
