@@ -15,7 +15,7 @@ $dados_grupo = $q_grupo->fetch_assoc();
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <title>Lead360 - Relatório detalhado
+    <title>LiderScan - Relatório detalhado
       <? echo $dados_grupo['nome']; ?>
     </title>
     <?php include '../include/_head.php' ?>
@@ -30,7 +30,7 @@ $dados_grupo = $q_grupo->fetch_assoc();
          data-bs-theme="dark">
       <div class="container-fluid">
         <a class="navbar-brand"
-           href="#">Lead360 - Relatório detalhado</a>
+           href="#">LiderScan - Relatório detalhado</a>
     </nav>
 
     <div class="container">

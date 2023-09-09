@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <title>Lead360 - Avaliação Concluida
+    <title>LiderScan - Avaliação Concluida
 
     </title>
     <?php include 'include/_head.php' ?>
@@ -20,7 +20,7 @@
          data-bs-theme="dark">
       <div class="container-fluid">
         <a class="navbar-brand"
-           href="#">Lead360</a>
+           href="#">LiderScan</a>
 
     </nav>
 

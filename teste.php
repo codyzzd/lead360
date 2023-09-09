@@ -42,8 +42,8 @@ if ($result->num_rows > 0) {
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <title>Lead360 - Avaliação:
-      <? echo $data_survey[0]["nome_lider"]; ?>
+    <title>LiderScan - Avaliação:
+      <? echo $data_survey[0]["nome"]; ?>
     </title>
     <?php include 'include/_head.php' ?>
   </head>
@@ -57,7 +57,7 @@ if ($result->num_rows > 0) {
          data-bs-theme="dark">
       <div class="container-fluid">
         <a class="navbar-brand"
-           href="#">Lead360 - Avaliação</a>
+           href="#">LiderScan - Avaliação</a>
 
     </nav>
 

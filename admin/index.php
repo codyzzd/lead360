@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <title>Lead360 - Avaliação</title>
+    <title>LiderScan - Avaliação</title>
     <?php include '../include/_head.php' ?>
   </head>
 

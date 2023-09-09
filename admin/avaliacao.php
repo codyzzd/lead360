@@ -39,7 +39,7 @@ while (
     <meta charset="UTF-8" />
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0" />
-    <title>Lead360 - Avaliação
+    <title>LiderScan - Avaliação
       <?php echo $parts[0]['nome']; ?>
     </title>
     <?php include '../include/_head.php' ?>
@@ -486,7 +486,7 @@ while (
                       <td>${row.participantes[i].nome} <small class="text-body-secondary">(${row.participantes[i].email})</small></td>
                       <td>${status} ${fezaval}</td>
                       <td class="text-end">
-                      <button class="btn btn-light btn-sm avalurl" type="button" data-clipboard-text="http://lead360.free.nf/teste.php?id_part=${row.participantes[i].id}&id_survey=<?php echo $survey_id; ?>&id_grupo=${row.id_grupo}"><span class="btn-label"><i class="fa fa-link me-2"></i></span>Link</button>
+                      <button class="btn btn-light btn-sm avalurl" type="button" data-clipboard-text="http://LiderScan.com.br/teste.php?id_part=${row.participantes[i].id}&id_survey=<?php echo $survey_id; ?>&id_grupo=${row.id_grupo}"><span class="btn-label"><i class="fa fa-link me-2"></i></span>Link</button>
                       <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal_excluir" data-participant-id="${row.participantes[i].id}"><span class="btn-label"><i class="fa fa-paper-plane me-2"></i></span>Enviar</button>
                       </td>
                       </tr>
@@ -837,7 +837,7 @@ while (
                                                                     <td>${row.participantes[i].nome} <small class="text-body-secondary">(${row.participantes[i].email})</small></td>
                                                                     <td>${status} ${fezaval}</td>
                                                                     <td class="text-end">
-                                                                    <button class="btn btn-light btn-sm avalurl" type="button" data-clipboard-text="http://lead360.free.nf/teste.php?id_part=${row.participantes[i].id}&id_survey=<?php echo $survey_id; ?>&id_grupo=${row.id_grupo}"><span class="btn-label"><i class="fa fa-link me-2"></i></span>Link</button>
+                                                                    <button class="btn btn-light btn-sm avalurl" type="button" data-clipboard-text="http://LiderScan.com.br/teste.php?id_part=${row.participantes[i].id}&id_survey=<?php echo $survey_id; ?>&id_grupo=${row.id_grupo}"><span class="btn-label"><i class="fa fa-link me-2"></i></span>Link</button>
                                                                     <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal_excluir" data-participant-id="${row.participantes[i].id}"><span class="btn-label"><i class="fa fa-paper-plane me-2"></i></span>Enviar</button>
                                                                     </td>
                                                                     </tr>
