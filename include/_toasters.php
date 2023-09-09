@@ -1,0 +1,1 @@
+<div class="toast-container position-fixed p-3 bottom-0 start-50 translate-middle-x" id="toasters"></div>
