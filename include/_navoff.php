@@ -2,8 +2,12 @@
      style="background-color: #6929F3;"
      data-bs-theme="dark">
   <div class="container-fluid">
-    <a class="navbar-brand"
+    <!-- <a class="navbar-brand"
        href="#">LiderScan</a>
-
+       <a class="navbar-brand" href="#">-->
+    <img src="/logo_liderscan.png"
+         alt="LiderScan"
+         height="24">
+    </a>
   </div>
 </nav>
