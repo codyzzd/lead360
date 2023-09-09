@@ -3,8 +3,14 @@
      data-bs-theme="dark">
 
   <div class="container-fluid">
+    <!--   <a class="navbar-brand"
+       href="#">LiderScan</a>-->
     <a class="navbar-brand"
-       href="#">LiderScan</a>
+       href="#">
+      <img src="/logo_liderscan.png"
+           alt="LiderScan"
+           height="32">
+    </a>
     <button class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
