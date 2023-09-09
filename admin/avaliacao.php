@@ -99,7 +99,8 @@ while (
         <div class="col-12 col-md-4 col-lg-3 esq_cadastro">
           <h4 class="mb-3">Criar grupos</h4>
 
-          <form id="form_new">
+          <form id="form_new"
+                name="form_new">
             <div class="form-group">
               <label for="lider">Lider</label>
               <select class="form-select mb-3 select-validation"
@@ -168,22 +169,19 @@ while (
                 </option>
               <?php } ?>
             </select>
-
-            <div class="d-grid gap-2 d-block mb-3">
-              <button type="submit"
-                      class="btn btn-primary submit-button">
-                <span class="btn-label"><i class="fa fa-plus me-2"></i></span>Criar grupo
-              </button>
-
-            </div>
           </form>
+
           <div class="d-grid gap-2 d-block mb-3">
+            <button type="submit"
+                    class="btn btn-primary submit-button"
+                    id="submit_form">
+              <span class="btn-label"><i class="fa fa-plus me-2"></i></span>Criar grupo
+            </button>
             <button class="btn btn-outline-primary"
                     data-bs-toggle="modal"
                     data-bs-target="#modal_link_csv"
                     id="link_csv"><span class="btn-label"><i class="fa fa-file-csv me-2"></i></span>Criar por CSV</button>
           </div>
-
         </div>
 
         <div class="col-12 col-md-8 col-lg-9 dir_cards">
@@ -405,8 +403,10 @@ while (
 
     <script>
       $(document).ready(function () {
-        //clipboard
-        //new ClipboardJS('.avalurl');
+        document.querySelector("#submit_form").addEventListener("click", function () {
+          document.querySelector("form[name='form_new']").submit();
+        });
+
 
         new ClipboardJS(".avalurl", {
           text: function (trigger) {
