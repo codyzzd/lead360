@@ -754,6 +754,3 @@ if ($indicador == 'rel_view') {
 
 $conn->close();
 
-
-
-// funções

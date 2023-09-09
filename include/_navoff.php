@@ -3,7 +3,7 @@
      data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand"
-       href="#">Lead360</a>
+       href="#">LiderScan</a>
 
   </div>
 </nav>
