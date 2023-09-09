@@ -172,8 +172,7 @@ while (
           </form>
 
           <div class="d-grid gap-2 d-block mb-3">
-            <button type="submit"
-                    class="btn btn-primary submit-button"
+            <button class="btn btn-primary submit-button"
                     id="submit_form">
               <span class="btn-label"><i class="fa fa-plus me-2"></i></span>Criar grupo
             </button>
@@ -404,7 +403,7 @@ while (
     <script>
       $(document).ready(function () {
         document.querySelector("#submit_form").addEventListener("click", function () {
-          document.querySelector("form[name='form_new']").submit();
+          document.querySelector("#form_new").submit();
         });
 
 
