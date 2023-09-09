@@ -169,13 +169,17 @@ while (
                 </option>
               <?php } ?>
             </select>
-          </form>
 
+            <div class="d-grid gap-2 d-block mb-3">
+              <button class="btn btn-primary"
+                      id="submit_form"
+                      type="submit">
+                <span class="btn-label"><i class="fa fa-plus me-2"></i></span>Criar grupo
+              </button>
+
+            </div>
+          </form>
           <div class="d-grid gap-2 d-block mb-3">
-            <button class="btn btn-primary submit-button"
-                    id="submit_form">
-              <span class="btn-label"><i class="fa fa-plus me-2"></i></span>Criar grupo
-            </button>
             <button class="btn btn-outline-primary"
                     data-bs-toggle="modal"
                     data-bs-target="#modal_link_csv"
@@ -402,9 +406,6 @@ while (
 
     <script>
       $(document).ready(function () {
-        document.querySelector("#submit_form").addEventListener("click", function () {
-          document.querySelector("#form_new").submit();
-        });
 
 
         new ClipboardJS(".avalurl", {
