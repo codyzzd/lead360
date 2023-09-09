@@ -7,7 +7,7 @@
        <a class="navbar-brand" href="#">-->
     <img src="/logo_liderscan.png"
          alt="LiderScan"
-         height="24">
+         height="32">
     </a>
   </div>
 </nav>
