@@ -4,9 +4,9 @@
   <div class="container-fluid">
     <a class="navbar-brand"
        href="#">
-      <img src="/favicon.png"
+      <img src="/logo_nav.png"
            alt="LiderScan"
-           height="24">
+           height="32">
     </a>
     <a class="navbar-brand"
        href="#">LiderScan</a>
