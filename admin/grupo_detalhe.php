@@ -30,7 +30,12 @@ $dados_grupo = $q_grupo->fetch_assoc();
          data-bs-theme="dark">
       <div class="container-fluid">
         <a class="navbar-brand"
-           href="#">LiderScan - Relatório detalhado</a>
+           href="#">
+          <img src="/logonav.png"
+               alt="Logo"
+               height="24"
+               class="d-inline-block align-text-top">LiderScan - Relatório detalhado
+        </a>
     </nav>
 
     <div class="container">

@@ -61,7 +61,7 @@ if ($result->num_rows > 0) {
           <img src="/logonav.png"
                alt="Logo"
                height="24"
-               class="d-inline-block align-text-top">LiderScan
+               class="d-inline-block align-text-top">LiderScan - Avaliando: <? echo $data_survey[0]["nome"]; ?>
         </a>
 
     </nav>

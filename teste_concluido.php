@@ -24,7 +24,7 @@
           <img src="/logonav.png"
                alt="Logo"
                height="24"
-               class="d-inline-block align-text-top">LiderScan
+               class="d-inline-block align-text-top">LiderScan - Avaliação concluida!
         </a>
 
     </nav>
