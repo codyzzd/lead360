@@ -74,7 +74,7 @@
             success: function (response) {
               if (response === "ok") {
                 $("#modal_del_close").click(); //fechar o canvas
-                criarToastmini('success', 'Usuario criado com sucesso! Redirecionando em 3 segundos...');
+                criarToastmini('success', 'Usuario criado! Redirecionando em 3 segundos...');
                 setTimeout(function () {
                   window.location.href = "login.php";
                 }, 3000); // 3000 milissegundos = 3 segundos

@@ -176,7 +176,7 @@ if ($result->num_rows > 0) {
             },
             success: function (response) {
               if (response === "ok") {
-                criarToastmini('success', 'Avaliação feita com sucesso! Redirecionando em 3 segundos...');
+                criarToastmini('success', 'Avaliação concluida! Redirecionando em 3 segundos...');
 
 
                 window.location.href = "teste_concluido.php";

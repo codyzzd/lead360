@@ -316,7 +316,7 @@
               if (response === "ok") {
                 $("#modal_edit_close").click(); //fechar o canvas
                 //notyf.success('Participante atualizado com sucesso!');
-                criarToastmini('success', 'Participante atualizado com sucesso!');
+                criarToastmini('success', 'Participante atualizado!');
 
                 atualizarTabela(); // Atualizar a tabela após a criação da avaliação
               } else {
@@ -379,7 +379,7 @@
               if (response === "ok") {
                 $("#modal_new_close").click(); //fechar o canvas
                 $("#form_new")[0].reset();
-                criarToastmini('success', 'Novo participante cadastrado com sucesso!');
+                criarToastmini('success', 'Novo participante cadastrado!');
                 atualizarTabela(); // Atualizar a tabela após a criação da avaliação
               } else {
 
