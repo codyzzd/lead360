@@ -5,7 +5,7 @@
   <div class="container-fluid">
     <a class="navbar-brand"
        href="#">
-      <img src="/logo_nav.png"
+      <img src="/logonav.png"
            alt="LiderScan"
            height="32">
     </a>
