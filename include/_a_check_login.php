@@ -1,5 +1,13 @@
 <?php
+/*
 session_start();
+
+if (!isset($_SESSION['user_email'])) {
+  session_destroy();
+  header("Location: ../admin/login.php");
+  exit();
+}*/
+
 
 $time_now = time();
 $session_timeout = 60 * 60 * 12; // 12 horas em segundos
@@ -11,5 +19,3 @@ if ($time_now - $time_last_activity > $session_timeout) {
   header("Location: ../admin/login.php");
   exit();
 }
-
-// O usuário está ativo, então continue.
