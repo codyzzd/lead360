@@ -6,11 +6,11 @@
     <a class="navbar-brand"
        href="#">
       <img src="/logonav.png"
-           alt="LiderScan"
-           height="32">
+           alt="Logo"
+           width="30"
+           height="24"
+           class="d-inline-block align-text-top">LiderScan
     </a>
-    <a class="navbar-brand"
-       href="#">LiderScan</a>
 
     <button class="navbar-toggler"
             type="button"
