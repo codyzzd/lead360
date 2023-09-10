@@ -6,7 +6,6 @@
        href="#">
       <img src="/logonav.png"
            alt="Logo"
-           width="30"
            height="24"
            class="d-inline-block align-text-top">LiderScan
     </a>
