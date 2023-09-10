@@ -57,7 +57,12 @@ if ($result->num_rows > 0) {
          data-bs-theme="dark">
       <div class="container-fluid">
         <a class="navbar-brand"
-           href="#">LiderScan - Avaliação</a>
+           href="#">
+          <img src="/logonav.png"
+               alt="Logo"
+               height="24"
+               class="d-inline-block align-text-top">LiderScan
+        </a>
 
     </nav>
 

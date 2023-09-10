@@ -20,7 +20,12 @@
          data-bs-theme="dark">
       <div class="container-fluid">
         <a class="navbar-brand"
-           href="#">LiderScan</a>
+           href="#">
+          <img src="/logonav.png"
+               alt="Logo"
+               height="24"
+               class="d-inline-block align-text-top">LiderScan
+        </a>
 
     </nav>
 
