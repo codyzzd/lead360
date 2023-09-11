@@ -44,6 +44,7 @@
                       class="btn btn-primary">Entrar</button>
             </form>
           </div>
+          <hr>
           <div>
             <p>Não tem conta? <a href="criar_conta.php"
                  class="">Criar conta</a></p>

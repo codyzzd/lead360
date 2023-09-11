@@ -17,9 +17,7 @@
       <div class="row justify-content-center">
         <div class="col-12 col-lg-4">
           <div class="mb-3">
-
             <h2>Criar conta</h2>
-
             <form id="criarForm">
               <div class="mb-3">
                 <label for="email"
@@ -45,6 +43,7 @@
                       class="btn btn-primary">Criar conta</button>
             </form>
           </div>
+          <hr>
           <div>
             <p>Já possui conta? <a href="login.php"
                  class="">Entrar</a></p>
