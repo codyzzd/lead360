@@ -15,7 +15,7 @@
     <? include '../include/_navoff.php' ?>
 
     <div class="container">
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-12 col-lg-6">
           <div class="mb-3">
             <div id="resultado"></div> <!-- Aqui será exibida a mensagem de sucesso/erro -->
