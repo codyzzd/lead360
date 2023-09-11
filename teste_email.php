@@ -8,7 +8,7 @@ curl_setopt(
   CURLOPT_HTTPHEADER,
   array(
     'accept: application/json',
-    'api-key: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',
+    'api-key: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',
     'content-type: application/json',
   )
 );
