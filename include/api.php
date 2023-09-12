@@ -774,8 +774,8 @@ if ($indicador == 'enviar_email') {
   while ($row_lider = $res_lider->fetch_assoc()) {
     $data_lider[] = $row_lider;
   }
-  #adsda
-  echo $nome_lider = $data_lider[0]['nome'];
+
+  echo $data_lider[0]['nome'];
 
   //montar email
 
