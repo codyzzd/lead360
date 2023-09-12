@@ -792,11 +792,11 @@ if ($indicador == 'enviar_email') {
 
   $link_email = "https://LiderScan.com.br/teste.php?id_part=$part&id_survey=$aval&id_grupo=$group";
 
-  /*
-    //montar e mandar email
-    include 'config.php';
-    $apiKey = API_KEY;
-    */
+
+  //montar e mandar email
+  include 'config.php';
+  $apiKey = API_KEY;
+
   /*
   // Configuração cURL
   $ch = curl_init();
