@@ -487,7 +487,7 @@ while (
                       <td>${status} ${fezaval}</td>
                       <td class="text-end">
 
-                      <button class="btn btn-light btn-sm avalurl" type="button" data-clipboard-text="http://LiderScan.com.br/teste.php?id_part=${row.participantes[i].id}&id_survey=<?php echo $survey_id; ?>&id_grupo=${row.id_grupo}"><span class="btn-label"><i class="fa fa-link me-2"></i></span>Link</button>
+                      <button class="btn btn-light btn-sm avalurl" type="button" data-clipboard-text="https://LiderScan.com.br/teste.php?id_part=${row.participantes[i].id}&id_survey=<?php echo $survey_id; ?>&id_grupo=${row.id_grupo}"><span class="btn-label"><i class="fa fa-link me-2"></i></span>Link</button>
 
                       <button type="button" class="btn btn-outline-success btn-sm enviar_link" data-survey-id="<?php echo $survey_id; ?>" data-group-id="${row.id_grupo}" data-participant-id="${row.participantes[i].id}"><span class="btn-label"><i class="fa fa-paper-plane me-2"></i></span>Enviar</button>
                       </td>
@@ -871,7 +871,7 @@ while (
                                                                     <td>${row.participantes[i].nome} <small class="text-body-secondary">(${row.participantes[i].email})</small></td>
                                                                     <td>${status} ${fezaval}</td>
                                                                     <td class="text-end">
-                                                                    <button class="btn btn-light btn-sm avalurl" type="button" data-clipboard-text="http://LiderScan.com.br/teste.php?id_part=${row.participantes[i].id}&id_survey=<?php echo $survey_id; ?>&id_grupo=${row.id_grupo}"><span class="btn-label"><i class="fa fa-link me-2"></i></span>Link</button>
+                                                                    <button class="btn btn-light btn-sm avalurl" type="button" data-clipboard-text="https://LiderScan.com.br/teste.php?id_part=${row.participantes[i].id}&id_survey=<?php echo $survey_id; ?>&id_grupo=${row.id_grupo}"><span class="btn-label"><i class="fa fa-link me-2"></i></span>Link</button>
                                                                     <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal_excluir" data-participant-id="${row.participantes[i].id}"><span class="btn-label"><i class="fa fa-paper-plane me-2"></i></span>Enviar</button>
                                                                     </td>
                                                                     </tr>
