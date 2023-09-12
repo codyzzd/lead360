@@ -759,9 +759,22 @@ if ($indicador == 'enviar_email') {
   $group = $_POST['group_id'];
   $aval = $_POST['survey_id'];
 
-  //descobrir o seu nome
+  //descobrir os dados do particpiante
+  $sql_part = "SELECT p.nome ,p.email
+  FROM participantes p
+  WHERE id = '$part'";
 
-  //descobrir o seu lider
+  $res_part = $conn->query($sql_part);
+
+  $data_part = array();
+  while ($row_part = $res_part->fetch_assoc()) {
+    $data_part[] = $row_part;
+  }
+
+  $nome_part = $data_part[0]['nome']; // Nome do participante
+  $email_part = $data_part[0]['email']; // Email do participante
+
+  //descobrir os dados do lider do grupo
   $sql_lider = "SELECT p.nome
   FROM participantes_grupo pg
   JOIN participantes p ON pg.id_participante = p.id
@@ -775,15 +788,61 @@ if ($indicador == 'enviar_email') {
     $data_lider[] = $row_lider;
   }
 
+  $nome_lider = $data_lider[0]['nome']; // Nome do lider do grupo
+
+  $link_email = "http://LiderScan.com.br/teste.php?id_part=$part&id_survey=$aval&id_grupo=$group";
+
+
+  //montar e mandar email
+  include '/config.php';
+  $apiKey = API_KEY;
+
+  $ch = curl_init();
+
+  curl_setopt($ch, CURLOPT_URL, 'https://api.brevo.com/v3/smtp/email');
+  curl_setopt(
+    $ch,
+    CURLOPT_HTTPHEADER,
+    array(
+      'accept: application/json',
+      'api-key: ' . $apiKey,
+      'content-type: application/json',
+    )
+  );
+  curl_setopt($ch, CURLOPT_POSTFIELDS, '{
+    "to":[
+       {
+          "email":"' . $email_part . '",
+          "name":"' . $nome_part . '"
+       }
+    ],
+    "templateId":2,
+    "params":{
+       "PART":"' . $nome_part . '",
+       "LIDER":"' . $nome_part . '",
+       "LINK":"' . $link_email . '"
+    },
+    "headers":{
+       "charset":"iso-8859-1"
+    }');
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+  $response = curl_exec($ch);
+
+  if (curl_errno($ch)) {
+    echo 'Error: ' . curl_error($ch);
+  } else {
+    echo $response;
+  }
+
+  curl_close($ch);
+
   // Processa a solicitação AJAX e obtém o resultado
-  $resultado = array('mensagem' => $data_lider[0]['nome']);
+  //$resultado = array('mensagem' => $data_lider[0]['nome']);
 
   // Retorna a resposta como JSON
-  header('Content-Type: application/json');
-  echo json_encode($resultado);
-
-  //montar email
-
+  //header('Content-Type: application/json');
+  //echo json_encode($resultado);
 
 }
 
