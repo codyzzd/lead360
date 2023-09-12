@@ -775,8 +775,8 @@ if ($indicador == 'enviar_email') {
     $data_lider[] = $row_lider;
   }
 
-  echo $nome_lider = $data_lider['nome'];
-
+  $nome_lider = $data_lider['nome'];
+  echo 'ok';
 
   //montar email
 
