@@ -839,7 +839,7 @@ if ($indicador == 'enviar_email') {
   curl_close($ch);
 
   // Processa a solicitação AJAX e obtém o resultado
-  $resultado = array('mensagem' => $response);
+  $resultado = array('mensagem' => $apiKey);
 
   // Retorna a resposta como JSON
   header('Content-Type: application/json');
