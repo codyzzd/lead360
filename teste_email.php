@@ -26,7 +26,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, '{
          "name":"Bruno Gonçalves"
       }
    ],
-   "subject":"Hello world",
+   "subject":"Hello world 2",
    "htmlContent":"<html><head></head><body><p>Hello,</p>This is my first transactional email sent from Brevo.</p></body></html>"
 }');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
