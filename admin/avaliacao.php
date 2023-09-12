@@ -548,7 +548,7 @@ while (
         atualizarTabela();
 
         $(".container").on("click", ".enviar_link", function () {
-          var partId = $(this).attr("data-group-id"); // Obter o valor do atributo data-participant-id
+          var partId = $(this).attr("data-participant-id"); // Obter o valor do atributo data-participant-id
           console.log(partId);
         });
 
