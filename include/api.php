@@ -794,7 +794,7 @@ if ($indicador == 'enviar_email') {
 
 
   //montar e mandar email
-  require 'https://liderscan.com.br/config.php';
+  //require 'https://liderscan.com.br/config.php';
   $apiKey = API_KEY;
 
   /*
