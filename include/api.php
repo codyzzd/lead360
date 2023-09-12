@@ -794,57 +794,63 @@ if ($indicador == 'enviar_email') {
 
 
   //montar e mandar email
-  include 'https://liderscan.com.br/config.php';
+  include '/config.php';
   $apiKey = API_KEY;
 
+  // Configuração cURL
   $ch = curl_init();
 
   curl_setopt($ch, CURLOPT_URL, 'https://api.brevo.com/v3/smtp/email');
-  curl_setopt(
-    $ch,
-    CURLOPT_HTTPHEADER,
-    array(
-      'accept: application/json',
-      'api-key: ' . $apiKey,
-      'content-type: application/json',
-    )
+  curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'accept: application/json',
+    'api-key: ' . $apiKey,
+    'content-type: application/json',
+  )
   );
-  curl_setopt($ch, CURLOPT_POSTFIELDS, '{
-    "to":[
-       {
-          "email":"' . $email_part . '",
-          "name":"' . $nome_part . '"
-       }
-    ],
-    "templateId":2,
-    "params":{
-       "PART":"' . $nome_part . '",
-       "LIDER":"' . $nome_lider . '",
-       "LINK":"' . $link_email . '"
-    },
-    "headers":{
-       "charset":"iso-8859-1"
-    }');
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
+  // Dados da solicitação
+  $requestData = array(
+    "to" => array(
+      array(
+        "email" => $email_part,
+        "name" => $nome_part
+      )
+    ),
+    "templateId" => 2,
+    "params" => array(
+      "PART" => $nome_part,
+      "LIDER" => $nome_lider,
+      "LINK" => $link_email
+    ),
+    "headers" => array(
+      "charset" => "iso-8859-1"
+    )
+  );
+
+  $jsonData = json_encode($requestData);
+
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
+
+  // Executar a solicitação cURL
   $response = curl_exec($ch);
 
-  /*if (curl_errno($ch)) {
+  if (curl_errno($ch)) {
     echo 'Error: ' . curl_error($ch);
   } else {
-    //echo $response;
-    echo 'ok';
-  }*/
+    echo 'Response: ' . $response;
+  }
 
   curl_close($ch);
 
-  // Processa a solicitação AJAX e obtém o resultado
-  $resultado = array('mensagem' => $apiKey);
+  /*
+    // Processa a solicitação AJAX e obtém o resultado
+    $resultado = array('mensagem' => $apiKey);
 
-  // Retorna a resposta como JSON
-  header('Content-Type: application/json');
-  echo json_encode($resultado);
-
+    // Retorna a resposta como JSON
+    header('Content-Type: application/json');
+    echo json_encode($resultado);
+  */
 }
 
 $conn->close();
