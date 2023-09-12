@@ -752,5 +752,11 @@ if ($indicador == 'rel_view') {
 
 }
 
-$conn->close();
+if ($indicador == 'enviar_email') {
 
+  // Recuperar os dados do formulário
+  $part = $_POST['lider'];
+  $group = $_POST['part1'];
+}
+
+$conn->close();

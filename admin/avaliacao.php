@@ -489,7 +489,7 @@ while (
 
                       <button class="btn btn-light btn-sm avalurl" type="button" data-clipboard-text="http://LiderScan.com.br/teste.php?id_part=${row.participantes[i].id}&id_survey=<?php echo $survey_id; ?>&id_grupo=${row.id_grupo}"><span class="btn-label"><i class="fa fa-link me-2"></i></span>Link</button>
 
-                      <button type="button" class="btn btn-outline-success btn-sm enviar_link" data-participant-id="${row.participantes[i].id}"><span class="btn-label"><i class="fa fa-paper-plane me-2"></i></span>Enviar</button>
+                      <button type="button" class="btn btn-outline-success btn-sm enviar_link" data-group-id="${row.id_grupo}" data-participant-id="${row.participantes[i].id}"><span class="btn-label"><i class="fa fa-paper-plane me-2"></i></span>Enviar</button>
                       </td>
                       </tr>
                       `);
@@ -549,7 +549,32 @@ while (
 
         $(".container").on("click", ".enviar_link", function () {
           var partId = $(this).attr("data-participant-id"); // Obter o valor do atributo data-participant-id
-          console.log(partId);
+          var groupId = $(this).attr("data-group-id"); //pega o grupo
+
+          // Enviar a solicitação Ajax
+          $.ajax({
+            type: "POST",
+            url: "../include/api.php", // Página PHP que irá processar os dados
+            data: {
+              part_id: partId,
+              group_id: groupId
+              indicador: "enviar_email",
+            },
+            success: function (response) {
+              // Manipular a resposta da solicitação Ajax aqui
+
+              if (response === "ok") {
+                criarToastmini("success", "E-mail enviado!");
+                atualizarTabela(); // Atualizar a tabela após a criação da avaliação
+              } else {
+                criarToastmini("danger", "Erro: " + response);
+              }
+            },
+            error: function (xhr, status, error) {
+              criarToastmini("danger", error);
+            },
+          });
+
         });
 
         //criar grupo
