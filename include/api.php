@@ -790,11 +790,11 @@ if ($indicador == 'enviar_email') {
 
   $nome_lider = $data_lider[0]['nome']; // Nome do lider do grupo
 
-  $link_email = "http://LiderScan.com.br/teste.php?id_part=$part&id_survey=$aval&id_grupo=$group";
+  $link_email = "https://LiderScan.com.br/teste.php?id_part=$part&id_survey=$aval&id_grupo=$group";
 
 
   //montar e mandar email
-  include '/config.php';
+  include 'https://liderscan.com.br/config.php';
   $apiKey = API_KEY;
 
   $ch = curl_init();
