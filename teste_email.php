@@ -1,6 +1,6 @@
 <?php
-// Include the configuration file
-include 'config.php';
+//montar e mandar email
+include '/config.php';
 $apiKey = API_KEY;
 
 $ch = curl_init();
@@ -16,19 +16,21 @@ curl_setopt(
   )
 );
 curl_setopt($ch, CURLOPT_POSTFIELDS, '{
-  "sender":{
-      "name":"Avaliação LiderScan",
-      "email":"avaliacao@liderscan.com.br"
-   },
-   "to":[
-      {
-         "email":"codyzzd@gmail.com",
-         "name":"Bruno Gonçalves"
-      }
-   ],
-   "subject":"Hello world 2",
-   "htmlContent":"<html><head></head><body><p>Hello,</p>This is my first transactional email sent from Brevo.</p></body></html>"
-}');
+  "to":[
+     {
+        "email":"codyzzd@gmail.com",
+        "name":"Bruno Gonçalves"
+     }
+  ],
+  "templateId":2,
+  "params":{
+     "PART":"ParticipanteX",
+     "LIDER":"LiderY",
+     "LINK":"LinksW"
+  },
+  "headers":{
+     "charset":"iso-8859-1"
+  }');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 $response = curl_exec($ch);
@@ -37,6 +39,7 @@ if (curl_errno($ch)) {
   echo 'Error: ' . curl_error($ch);
 } else {
   echo $response;
+  //echo 'ok';
 }
 
 curl_close($ch);
