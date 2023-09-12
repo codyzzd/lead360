@@ -8,8 +8,6 @@ header("Access-Control-Allow-Origin: *");
 // Conexão com o banco de dados
 require_once '_dbcon.php';
 
-include '\config.php';
-
 //pegar indicador
 $indicador = $_POST['indicador'];
 
@@ -796,7 +794,7 @@ if ($indicador == 'enviar_email') {
 
 
   //montar e mandar email
-  //include '/config.php';
+  require 'https://liderscan.com.br/config.php';
   $apiKey = API_KEY;
 
   /*
