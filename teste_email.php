@@ -1,4 +1,7 @@
 <?php
+// Include the configuration file
+include 'config.php';
+$apiKey = API_KEY;
 
 $ch = curl_init();
 
@@ -8,7 +11,7 @@ curl_setopt(
   CURLOPT_HTTPHEADER,
   array(
     'accept: application/json',
-    'api-key: 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',
+    'api-key: ' . $apiKey,
     'content-type: application/json',
   )
 );
