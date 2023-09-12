@@ -832,7 +832,8 @@ if ($indicador == 'enviar_email') {
   if (curl_errno($ch)) {
     echo 'Error: ' . curl_error($ch);
   } else {
-    echo $response;
+    //echo $response;
+    echo 'ok';
   }
 
   curl_close($ch);
