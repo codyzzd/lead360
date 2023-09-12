@@ -829,21 +829,21 @@ if ($indicador == 'enviar_email') {
 
   $response = curl_exec($ch);
 
-  if (curl_errno($ch)) {
+  /*if (curl_errno($ch)) {
     echo 'Error: ' . curl_error($ch);
   } else {
     //echo $response;
     echo 'ok';
-  }
+  }*/
 
   curl_close($ch);
 
   // Processa a solicitação AJAX e obtém o resultado
-  //$resultado = array('mensagem' => $data_lider[0]['nome']);
+  $resultado = array('mensagem' => $response);
 
   // Retorna a resposta como JSON
-  //header('Content-Type: application/json');
-  //echo json_encode($resultado);
+  header('Content-Type: application/json');
+  echo json_encode($resultado);
 
 }
 
