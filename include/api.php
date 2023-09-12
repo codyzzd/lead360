@@ -793,13 +793,22 @@ if ($indicador == 'enviar_email') {
   $link_email = "https://LiderScan.com.br/teste.php?id_part=$part&id_survey=$aval&id_grupo=$group";
 
 
-  //montar e mandar email
+  //pegar api
   include 'config.php';
   $apiKey = API_KEY;
 
+  //chamar curl para enviar o email
+  $result = enviarEmailCurl($apiKey, $email_part, $nome_part, $nome_lider, $link_email);
 
-  enviarEmailCurl($apiKey, $email_part, $nome_part, $nome_lider, $link_email);
-
+  if ($result['status'] === 201) {
+    // A solicitação foi bem-sucedida (status 201)
+    // Execute o código adicional aqui
+    echo 'ok';
+    // Você pode acessar a resposta da API usando $result['message']
+  } else {
+    // Ocorreu um erro na solicitação ou outro status HTTP foi retornado
+    echo 'Erro: HTTP Status ' . $result['status'] . ', Message: ' . $result['message'];
+  }
 
   // Processa a solicitação AJAX e obtém o resultado
   /*$resultado = array('mensagem' => $apiKey);
@@ -809,6 +818,8 @@ if ($indicador == 'enviar_email') {
   echo json_encode($resultado);*/
 
 }
+
+/* --------------------------------- funções -------------------------------- */
 
 function enviarEmailCurl($apiKey, $email_part, $nome_part, $nome_lider, $link_email)
 {
@@ -852,15 +863,17 @@ function enviarEmailCurl($apiKey, $email_part, $nome_part, $nome_lider, $link_em
 
   // Executar a solicitação cURL
   $response = curl_exec($ch);
-
-  if (curl_errno($ch)) {
-    echo 'Error: ' . curl_error($ch);
-  } else {
-    return $response;
-  }
+  $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE); // Obtém o status HTTP
 
   curl_close($ch);
+
+  if (curl_errno($ch)) {
+    return array('status' => 'error', 'message' => 'Error: ' . curl_error($ch));
+  } else {
+    return array('status' => $httpStatus, 'message' => $response);
+  }
 }
+
 
 
 $conn->close();
