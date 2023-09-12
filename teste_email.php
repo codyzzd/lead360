@@ -1,6 +1,6 @@
 <?php
 //montar e mandar email
-include '/config.php';
+include 'config.php';
 $apiKey = API_KEY;
 
 $ch = curl_init();
