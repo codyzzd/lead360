@@ -557,7 +557,7 @@ while (
             url: "../include/api.php", // Página PHP que irá processar os dados
             data: {
               part_id: partId,
-              group_id: groupId
+              group_id: groupId,
               indicador: "enviar_email",
             },
             success: function (response) {
