@@ -794,8 +794,8 @@ if ($indicador == 'enviar_email') {
 
 
   //montar e mandar email
-  //require 'https://liderscan.com.br/config.php';
-  //$apiKey = API_KEY;
+  require 'config.php';
+  $apiKey = API_KEY;
 
   /*
   // Configuração cURL
@@ -849,7 +849,7 @@ if ($indicador == 'enviar_email') {
 
 
   // Processa a solicitação AJAX e obtém o resultado
-  $resultado = array('mensagem' => $link_email);
+  $resultado = array('mensagem' => $apiKey);
 
   // Retorna a resposta como JSON
   header('Content-Type: application/json');
