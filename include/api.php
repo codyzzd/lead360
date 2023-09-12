@@ -849,11 +849,11 @@ if ($indicador == 'enviar_email') {
 
 
   // Processa a solicitação AJAX e obtém o resultado
-  //$resultado = array('mensagem' => $apiKey);
+  $resultado = array('mensagem' => $link_email);
 
   // Retorna a resposta como JSON
   header('Content-Type: application/json');
-  //echo json_encode($resultado);
+  echo json_encode($resultado);
 
 }
 
