@@ -844,17 +844,17 @@ if ($indicador == 'enviar_email') {
   } else {
     echo 'Response: ' . $response;
   }*/
-  /*
-    curl_close($ch);
+
+  //    curl_close($ch);
 
 
-    // Processa a solicitação AJAX e obtém o resultado
-    $resultado = array('mensagem' => $response);
+  // Processa a solicitação AJAX e obtém o resultado
+  $resultado = array('mensagem' => $data_lider[0]['nome']);
 
-    // Retorna a resposta como JSON
-    header('Content-Type: application/json');
-    echo json_encode($resultado);
-  */
+  // Retorna a resposta como JSON
+  header('Content-Type: application/json');
+  echo json_encode($resultado);
+
 }
 
 $conn->close();
