@@ -760,7 +760,25 @@ if ($indicador == 'enviar_email') {
   $aval = $_POST['survey_id'];
 
   //descobrir o seu nome
+
   //descobrir o seu lider
+  $sql_lider = "SELECT p.nome
+  FROM participantes_grupo pg
+  JOIN participantes p ON pg.id_participante = p.id
+  WHERE pg.tipo_participante = 'participante1'
+  AND pg.id_grupo = '$id_grupo'";
+
+  $res_lider = $conn->query($sql_lider);
+
+  $data_lider = array();
+  while ($row_lider = $res_lider->fetch_assoc()) {
+    $data_lider[] = $row_lider;
+  }
+
+  echo $nome_lider = $data_lider['nome'];
+
+
+  //montar email
 
 
 }
