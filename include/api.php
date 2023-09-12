@@ -8,7 +8,7 @@ header("Access-Control-Allow-Origin: *");
 // Conexão com o banco de dados
 require_once '_dbcon.php';
 
-require_once '/config.php';
+include '\config.php';
 
 //pegar indicador
 $indicador = $_POST['indicador'];
