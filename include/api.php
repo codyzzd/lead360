@@ -775,7 +775,12 @@ if ($indicador == 'enviar_email') {
     $data_lider[] = $row_lider;
   }
 
-  echo $data_lider[0]['nome'];
+  // Processa a solicitação AJAX e obtém o resultado
+  $resultado = array('mensagem' => $data_lider[0]['nome']);
+
+  // Retorna a resposta como JSON
+  header('Content-Type: application/json');
+  echo json_encode($resultado);
 
   //montar email
 
