@@ -8,6 +8,8 @@ header("Access-Control-Allow-Origin: *");
 // Conexão com o banco de dados
 require_once '_dbcon.php';
 
+require_once '/config.php';
+
 //pegar indicador
 $indicador = $_POST['indicador'];
 
@@ -794,7 +796,7 @@ if ($indicador == 'enviar_email') {
 
 
   //montar e mandar email
-  include '/config.php';
+  //include '/config.php';
   $apiKey = API_KEY;
 
   /*
