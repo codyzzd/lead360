@@ -819,7 +819,7 @@ if ($indicador == 'enviar_email') {
     "templateId":2,
     "params":{
        "PART":"' . $nome_part . '",
-       "LIDER":"' . $nome_part . '",
+       "LIDER":"' . $nome_lider . '",
        "LINK":"' . $link_email . '"
     },
     "headers":{
