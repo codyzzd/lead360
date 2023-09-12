@@ -755,8 +755,14 @@ if ($indicador == 'rel_view') {
 if ($indicador == 'enviar_email') {
 
   // Recuperar os dados do formulário
-  $part = $_POST['lider'];
-  $group = $_POST['part1'];
+  $part = $_POST['part_id'];
+  $group = $_POST['group_id'];
+  $aval = $_POST['survey_id'];
+
+  //descobrir o seu nome
+  //descobrir o seu lider
+
+
 }
 
 $conn->close();
