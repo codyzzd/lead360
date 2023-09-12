@@ -849,7 +849,7 @@ if ($indicador == 'enviar_email') {
 
 
   // Processa a solicitação AJAX e obtém o resultado
-  $resultado = array('mensagem' => $data_lider[0]['nome']);
+  $resultado = array('mensagem' => $data_part[0]['nome']);
 
   // Retorna a resposta como JSON
   header('Content-Type: application/json');
