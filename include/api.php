@@ -797,7 +797,21 @@ if ($indicador == 'enviar_email') {
   include 'config.php';
   $apiKey = API_KEY;
 
-  /*
+
+  enviarEmailCurl($apiKey, $email_part, $nome_part, $nome_lider, $link_email);
+
+
+  // Processa a solicitação AJAX e obtém o resultado
+  /*$resultado = array('mensagem' => $apiKey);
+
+  // Retorna a resposta como JSON
+  header('Content-Type: application/json');
+  echo json_encode($resultado);*/
+
+}
+
+function enviarEmailCurl($apiKey, $email_part, $nome_part, $nome_lider, $link_email)
+{
   // Configuração cURL
   $ch = curl_init();
 
@@ -839,22 +853,14 @@ if ($indicador == 'enviar_email') {
   // Executar a solicitação cURL
   $response = curl_exec($ch);
 
-  /*if (curl_errno($ch)) {
+  if (curl_errno($ch)) {
     echo 'Error: ' . curl_error($ch);
   } else {
-    echo 'Response: ' . $response;
-  }*/
+    return $response;
+  }
 
-  //    curl_close($ch);
-
-
-  // Processa a solicitação AJAX e obtém o resultado
-  $resultado = array('mensagem' => $apiKey);
-
-  // Retorna a resposta como JSON
-  header('Content-Type: application/json');
-  echo json_encode($resultado);
-
+  curl_close($ch);
 }
+
 
 $conn->close();
