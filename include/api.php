@@ -794,7 +794,7 @@ if ($indicador == 'enviar_email') {
 
 
   //montar e mandar email
-  include 'config.php';
+  include '/config.php';
   $apiKey = API_KEY;
 
   /*
