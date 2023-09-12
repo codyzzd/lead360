@@ -766,7 +766,7 @@ if ($indicador == 'enviar_email') {
   FROM participantes_grupo pg
   JOIN participantes p ON pg.id_participante = p.id
   WHERE pg.tipo_participante = 'participante1'
-  AND pg.id_grupo = '$id_grupo'";
+  AND pg.id_grupo = '$grupo'";
 
   $res_lider = $conn->query($sql_lider);
 
