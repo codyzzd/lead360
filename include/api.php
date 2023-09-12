@@ -801,11 +801,14 @@ if ($indicador == 'enviar_email') {
   $ch = curl_init();
 
   curl_setopt($ch, CURLOPT_URL, 'https://api.brevo.com/v3/smtp/email');
-  curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    'accept: application/json',
-    'api-key: ' . $apiKey,
-    'content-type: application/json',
-  )
+  curl_setopt(
+    $ch,
+    CURLOPT_HTTPHEADER,
+    array(
+      'accept: application/json',
+      'api-key: ' . $apiKey,
+      'content-type: application/json',
+    )
   );
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
@@ -835,22 +838,22 @@ if ($indicador == 'enviar_email') {
   // Executar a solicitação cURL
   $response = curl_exec($ch);
 
-  if (curl_errno($ch)) {
+  /*if (curl_errno($ch)) {
     echo 'Error: ' . curl_error($ch);
   } else {
     echo 'Response: ' . $response;
-  }
+  }*/
 
   curl_close($ch);
 
-  /*
-    // Processa a solicitação AJAX e obtém o resultado
-    $resultado = array('mensagem' => $apiKey);
 
-    // Retorna a resposta como JSON
-    header('Content-Type: application/json');
-    echo json_encode($resultado);
-  */
+  // Processa a solicitação AJAX e obtém o resultado
+  $resultado = array('mensagem' => $response);
+
+  // Retorna a resposta como JSON
+  header('Content-Type: application/json');
+  echo json_encode($resultado);
+
 }
 
 $conn->close();
