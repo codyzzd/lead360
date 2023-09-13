@@ -801,10 +801,19 @@ if ($indicador == 'enviar_email') {
     $apiKey = API_KEY; // guardando chave
     $result = enviarEmailCurl($apiKey, $email_part, $nome_part, $nome_lider, $link_email);
 
-    if ($result['status'] === 201) { // se deu certo atualiza cota e envia notificacao
+    if ($result['status'] === 201) { // se deu certo
+      //atualiza cota
       $sql_cota = "UPDATE brevo
       SET cota = cota - 1";
       $res_cota = $conn->query($sql_cota);
+
+      //muda a data do participante
+      $sql_ckmail = "UPDATE participantes_grupo
+      SET enviou_email = NOW()
+      WHERE id_participante = '$part' AND id_grupo = '$group';
+      ";
+      $res_ckmail = $conn->query($sql_ckmail);
+
       echo 'ok'; // devolve pra pagina que foi ok
     } else {
       // Ocorreu um erro na solicitação ou outro status HTTP foi retornado
@@ -812,7 +821,7 @@ if ($indicador == 'enviar_email') {
     }
 
   } else { // nao tem cota pra enviar email
-echo 'Sem cota!';
+    echo 'Sem cota!';
 
   }
 
