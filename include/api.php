@@ -262,8 +262,9 @@ if ($indicador == 'aval_new') {
   $descri = $_POST['aval_desc'];
   $user_id = $_POST['user_id'];
 
+  $dataatual = getDataAtualSaoPaulo();
   // Aqui você pode realizar a lógica de criação de conta e inserção no banco de dados
-  $query = "INSERT INTO testes (id, nome, descri, id_creator) VALUES (UUID(), '$aval', '$descri', '$user_id')";
+  $query = "INSERT INTO testes (id, nome, descri, id_creator,data) VALUES (UUID(), '$aval', '$descri', '$user_id','$dataatual')";
 
 
   //executa a query
