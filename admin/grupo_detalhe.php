@@ -122,13 +122,13 @@ $dados_grupo = $q_grupo->fetch_assoc();
           }
 
           // Calcula a quantidade de participantes únicos
-          echo $numParticipantesUnicos = count($participantesUnicos);
+          $numParticipantesUnicos = count($participantesUnicos);
 
           // Divide o valor em valor_outros pela quantidade de participantes únicos - 1
           foreach ($perguntasAgrupadas as &$perguntaAgrupada) {
             $perguntaAgrupada['valor_outros'] /= ($numParticipantesUnicos - 1);
           }
-
+          echo $perguntasAgrupadas;
 
           // Exiba o array agrupado na tela
           echo '<pre>';
