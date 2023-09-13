@@ -759,13 +759,13 @@ if ($indicador == 'enviar_email') {
   $group = $_POST['group_id'];
   $aval = $_POST['survey_id'];
 
+  $link_email = "https://LiderScan.com.br/teste.php?id_part=$part&id_survey=$aval&id_grupo=$group";
+
   //descobrir os dados do particpiante
   $sql_part = "SELECT p.nome ,p.email
   FROM participantes p
   WHERE id = '$part'";
-
   $res_part = $conn->query($sql_part);
-
   $data_part = array();
   while ($row_part = $res_part->fetch_assoc()) {
     $data_part[] = $row_part;
@@ -780,9 +780,7 @@ if ($indicador == 'enviar_email') {
   JOIN participantes p ON pg.id_participante = p.id
   WHERE pg.tipo_participante = 'participante1'
   AND pg.id_grupo = '$group'";
-
   $res_lider = $conn->query($sql_lider);
-
   $data_lider = array();
   while ($row_lider = $res_lider->fetch_assoc()) {
     $data_lider[] = $row_lider;
@@ -790,32 +788,38 @@ if ($indicador == 'enviar_email') {
 
   $nome_lider = $data_lider[0]['nome']; // Nome do lider do grupo
 
-  $link_email = "https://LiderScan.com.br/teste.php?id_part=$part&id_survey=$aval&id_grupo=$group";
-
-
-  //pegar api
-  include 'config.php';
-  $apiKey = API_KEY;
-
-  //chamar curl para enviar o email
-  $result = enviarEmailCurl($apiKey, $email_part, $nome_part, $nome_lider, $link_email);
-
-  if ($result['status'] === 201) {
-    // A solicitação foi bem-sucedida (status 201)
-    // Execute o código adicional aqui
-    echo 'ok';
-    // Você pode acessar a resposta da API usando $result['message']
-  } else {
-    // Ocorreu um erro na solicitação ou outro status HTTP foi retornado
-    echo 'Erro: HTTP Status ' . $result['status'] . ', Message: ' . $result['message'];
+  //checa se tem cota pra enviar email
+  $sql_brevo = "SELECT * FROM brevo";
+  $res_brevo = $conn->query($sql_brevo);
+  $data_brevo = array();
+  while ($row_brevo = $res_brevo->fetch_assoc()) {
+    $data_brevo[] = $row_brevo;
   }
 
-  // Processa a solicitação AJAX e obtém o resultado
-  /*$resultado = array('mensagem' => $apiKey);
+  if ($data_brevo[0]['cota'] > 0) { // maior que 0 envia email!
+    include 'config.php'; // buscar api chave
+    $apiKey = API_KEY; // guardando chave
+    $result = enviarEmailCurl($apiKey, $email_part, $nome_part, $nome_lider, $link_email);
 
-  // Retorna a resposta como JSON
-  header('Content-Type: application/json');
-  echo json_encode($resultado);*/
+    if ($result['status'] === 201) { // se deu certo atualiza cota e envia notificacao
+      $sql_cota = "UPDATE brevo
+      SET cota = cota - 1";
+      $res_cota = $conn->query($sql_cota);
+      echo 'ok'; // devolve pra pagina que foi ok
+    } else {
+      // Ocorreu um erro na solicitação ou outro status HTTP foi retornado
+      echo 'Erro: HTTP Status ' . $result['status'] . ', Message: ' . $result['message'];
+    }
+
+  } else { // nao tem cota pra enviar email
+echo 'Sem cota!';
+
+  }
+
+
+
+
+
 
 }
 
@@ -875,5 +879,4 @@ function enviarEmailCurl($apiKey, $email_part, $nome_part, $nome_lider, $link_em
 }
 
 
-
-$conn->close();
+$conn->close(); //Finaliza a conexão com o banco

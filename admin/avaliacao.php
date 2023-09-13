@@ -564,7 +564,6 @@ while (
             },
             success: function (response) {
               // Manipular a resposta da solicitação Ajax aqui
-
               if (response === "ok") {
                 criarToastmini("success", "E-mail enviado!");
                 atualizarTabela(); // Atualizar a tabela após a criação da avaliação
