@@ -11,11 +11,16 @@ function getDataAtualSaoPaulo()
 }
 $dataatual = getDataAtualSaoPaulo();
 
-$sql_cota = "UPDATE brevo, data
+$sql_cota = "UPDATE brevo
     SET cota = 300, data = '$dataatual'";
 $res_cota = $conn->query($sql_cota);
 
-echo $dataatual;
+if ($res_cota === false) {
+  // Lida com erros na consulta
+  echo "Erro na consulta: " . $conn->error;
+} else {
+  echo "Atualização bem-sucedida!";
+}
 
 
 ?>
