@@ -505,9 +505,10 @@ if ($indicador == 'group_new') {
   $row_uuid = $result_uuid->fetch_assoc();
   $grupo_uuid = $row_uuid['uuid'];
 
+  $dataatual = getDataAtualSaoPaulo();
   //criar um grupo
-  $query_grupo = "INSERT INTO grupos (id, id_aval, id_creator)
-                    VALUES ('$grupo_uuid', '$aval_id', '$id_creator')";
+  $query_grupo = "INSERT INTO grupos (id, id_aval, id_creator,data)
+                    VALUES ('$grupo_uuid', '$aval_id', '$id_creator','$dataatual')";
   $conn->query($query_grupo);
 
   //criar participantes_grupo
