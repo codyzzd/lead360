@@ -128,12 +128,12 @@ $dados_grupo = $q_grupo->fetch_assoc();
           foreach ($perguntasAgrupadas as &$perguntaAgrupada) {
             $perguntaAgrupada['valor_outros'] /= ($numParticipantesUnicos - 1);
           }
-          echo $perguntasAgrupadas;
+
 
           // Exiba o array agrupado na tela
-          echo '<pre>';
+          /*echo '<pre>';
           print_r($perguntasAgrupadas);
-          echo '</pre>';
+          echo '</pre>';*/
           ?>
           <?
           // Inicialize um array para armazenar as perguntas agrupadas por categoria
