@@ -308,7 +308,7 @@ if ($indicador == 'aval_send') {
   $query = "INSERT INTO respostas (id, id_part, id_aval,id_grupo, resposta,data)
   VALUES (UUID(), '$id_part', '$id_survey','$id_grupo', '$resposta','$dataatual');";
 
-  $query2 = "UPDATE participantes_grupo SET fez_teste = CURRENT_TIMESTAMP
+  $query2 = "UPDATE participantes_grupo SET fez_teste = '$dataatual'
   WHERE id_participante = '$id_part'
   AND id_grupo = '$id_grupo';
   ";
