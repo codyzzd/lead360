@@ -145,8 +145,9 @@ if ($indicador == 'part_new') {
   $emailpart = strtolower($_POST['email_part_new']);
   $user_id = $_POST['user_id'];
 
+  $dataatual = getDataAtualSaoPaulo();
   // Aqui você pode realizar a lógica de criação de conta e inserção no banco de dados
-  $query = "INSERT INTO participantes (id, nome, email, id_creator) VALUES (UUID(), '$nomepart', '$emailpart', '$user_id')";
+  $query = "INSERT INTO participantes (id, nome, email, id_creator,data) VALUES (UUID(), '$nomepart', '$emailpart', '$user_id','$dataatual')";
 
 
   //executa a query
