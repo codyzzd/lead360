@@ -300,9 +300,11 @@ if ($indicador == 'aval_send') {
 
   $errors = array();
 
+  $dataatual = getDataAtualSaoPaulo();
+
   // Aqui você pode realizar a lógica de criação de grupo e inserção no banco de dados
   $query = "INSERT INTO respostas (id, id_part, id_aval,id_grupo, resposta,data)
-  VALUES (UUID(), '$id_part', '$id_survey','$id_grupo', '$resposta',CONVERT_TZ(NOW(), 'UTC', 'America/Sao_Paulo'));";
+  VALUES (UUID(), '$id_part', '$id_survey','$id_grupo', '$resposta','$dataatual');";
 
   $query2 = "UPDATE participantes_grupo SET fez_teste = CURRENT_TIMESTAMP
   WHERE id_participante = '$id_part'
@@ -829,6 +831,8 @@ if ($indicador == 'enviar_email') {
 
 /* --------------------------------- funções -------------------------------- */
 
+$conn->close(); //Finaliza a conexão com o banco
+
 function enviarEmailCurl($apiKey, $email_part, $nome_part, $nome_lider, $link_email)
 {
   // Configuração cURL
@@ -882,5 +886,8 @@ function enviarEmailCurl($apiKey, $email_part, $nome_part, $nome_lider, $link_em
   }
 }
 
-
-$conn->close(); //Finaliza a conexão com o banco
+function getDataAtualSaoPaulo()
+{
+  date_default_timezone_set('America/Sao_Paulo'); // Define o fuso horário para São Paulo
+  return date('Y-m-d H:i:s'); // Obtém a data e hora atual formatada
+}
