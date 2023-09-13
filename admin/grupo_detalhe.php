@@ -16,7 +16,7 @@ $dados_grupo = $q_grupo->fetch_assoc();
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <title>LiderScan - Relatório detalhado
-      <? echo $dados_grupo[0]['nome']; ?>
+      <? echo $dados_grupo['nome']; ?>
     </title>
     <?php include '../include/_head.php' ?>
   </head>
@@ -135,9 +135,6 @@ $dados_grupo = $q_grupo->fetch_assoc();
           /*echo '<pre>';
           print_r($perguntasAgrupadas);
           echo '</pre>';*/
-
-
-
           ?>
           <?
           // Inicialize um array para armazenar as perguntas agrupadas por categoria
