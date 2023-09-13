@@ -43,7 +43,7 @@ $dados_grupo = $q_grupo->fetch_assoc();
         <div class="col-12 col-lg-8">
 
           <h2 class="mb-3">
-            <? echo $dados_grupo['nome']; ?>
+            <? echo $dados_grupo[0]['nome']; ?>
           </h2>
 
           <?
