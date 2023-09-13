@@ -169,7 +169,6 @@ $dados_grupo = $q_grupo->fetch_assoc();
                 <?php foreach ($perguntas as $perguntaAgrupada): ?>
                   <tr>
                     <td>
-
                       <?php echo $perguntaAgrupada['pergunta']; ?>
                     </td>
                     <!--<td>

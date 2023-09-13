@@ -302,7 +302,7 @@ if ($indicador == 'aval_send') {
 
   // Aqui você pode realizar a lógica de criação de grupo e inserção no banco de dados
   $query = "INSERT INTO respostas (id, id_part, id_aval,id_grupo, resposta,data)
-  VALUES (UUID(), '$id_part', '$id_survey','$id_grupo', '$resposta',NOW());";
+  VALUES (UUID(), '$id_part', '$id_survey','$id_grupo', '$resposta',CONVERT_TZ(NOW(), 'UTC', 'America/Sao_Paulo'));";
 
   $query2 = "UPDATE participantes_grupo SET fez_teste = CURRENT_TIMESTAMP
   WHERE id_participante = '$id_part'
@@ -631,7 +631,7 @@ if ($indicador == 'rel_view') {
   JOIN perguntas_categoria pc ON p.id_category = pc.id
   GROUP BY pc.nome";
   $result_contagem_perguntas = $conn->query($q_contagem_perguntas);
-  
+
   // Inicialize um array para armazenar a contagem de perguntas por categoria
   $contagem_perguntas = [];
 
