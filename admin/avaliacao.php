@@ -454,9 +454,7 @@ while (
                 for (let i = 0; i < row.participantes.length; i++) {
 
                   if (row.participantes[i].enviou_email !== null) {
-                    datac = moment(row.participantes[i].enviou_email)
-                      .add(1, "hours")
-                      .format("DD/MM/YYYY - HH:mm:ss");
+                    datac = moment(row.participantes[i].enviou_email).format("DD/MM/YYYY - HH:mm:ss");
                     status =
                       '<span class="badge text-bg-success" title="' +
                       datac +
@@ -467,9 +465,7 @@ while (
                   }
 
                   if (row.participantes[i].fez_teste !== null) {
-                    datac = moment(row.participantes[i].fez_teste)
-                      .add(1, "hours")
-                      .format("DD/MM/YYYY - HH:mm:ss");
+                    datac = moment(row.participantes[i].fez_teste).format("DD/MM/YYYY - HH:mm:ss");
                     fezaval =
                       '<span class="badge text-bg-success" title="' +
                       datac +
