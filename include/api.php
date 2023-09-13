@@ -196,8 +196,9 @@ if ($indicador == 'part_new_csv') {
       } else {
         // Email válido
         // Inserir o participante no banco de dados
+        $dataatual = getDataAtualSaoPaulo();
         $sql = "INSERT INTO participantes (id, nome, email, id_creator, data)
-                 VALUES (UUID(), '{$participante[0]}', '{$participante[1]}', '$id_creator', NOW())";
+                 VALUES (UUID(), '{$participante[0]}', '{$participante[1]}', '$id_creator', '$dataatual')";
         $conn->query($sql);
 
         $qtd_validos++;
@@ -805,8 +806,9 @@ if ($indicador == 'enviar_email') {
       $res_cota = $conn->query($sql_cota);
 
       //muda a data do participante
+      $dataatual = getDataAtualSaoPaulo();
       $sql_ckmail = "UPDATE participantes_grupo
-      SET enviou_email = NOW()
+      SET enviou_email = '$dataatual'
       WHERE id_participante = '$part' AND id_grupo = '$group';
       ";
       $res_ckmail = $conn->query($sql_ckmail);
