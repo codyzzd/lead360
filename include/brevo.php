@@ -2,7 +2,7 @@
 //atualizar banco
 //header("Access-Control-Allow-Origin: *");
 // Conexão com o banco de dados
-require_once '/include/_dbcon.php';
+require_once '_dbcon.php';
 
 function getDataAtualSaoPaulo()
 {
