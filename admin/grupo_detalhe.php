@@ -52,9 +52,9 @@ $dados_grupo = $q_grupo->fetch_assoc();
 
           // Consulta SQL para obter todas as respostas de todos os participantes do grupo
           $respostas = "SELECT r.id_part, r.resposta, pg.tipo_participante
-    FROM respostas r
-    INNER JOIN participantes_grupo pg ON r.id_part = pg.id_participante AND r.id_grupo = pg.id_grupo
-    WHERE r.id_grupo = '$id_grupo';";
+          FROM respostas r
+          INNER JOIN participantes_grupo pg ON r.id_part = pg.id_participante AND r.id_grupo = pg.id_grupo
+          WHERE r.id_grupo = '$id_grupo';";
 
           $q_respostas = $conn->query($respostas);
 
@@ -65,7 +65,7 @@ $dados_grupo = $q_grupo->fetch_assoc();
 
             foreach ($json_data as $pergunta_id => $valor) {
               // Consulta para obter o texto da pergunta e a categoria
-              $q_pergunta = "SELECT p.pergunta, p.id_category FROM perguntas p WHERE p.id = '$pergunta_id'";
+              //$q_pergunta = "SELECT p.pergunta, p.id_category FROM perguntas p WHERE p.id = '$pergunta_id'";
               $q_pergunta = "SELECT p.pergunta, x.nome FROM perguntas p JOIN perguntas_categoria x ON p.id_category = x.id WHERE p.id = '$pergunta_id'";
               $result_pergunta = $conn->query($q_pergunta);
               $row_pergunta = $result_pergunta->fetch_assoc();
@@ -132,9 +132,9 @@ $dados_grupo = $q_grupo->fetch_assoc();
 
 
           // Exiba o array agrupado na tela
-          /*echo '<pre>';
+          echo '<pre>';
           print_r($perguntasAgrupadas);
-          echo '</pre>';*/
+          echo '</pre>';
 
 
 

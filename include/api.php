@@ -8,10 +8,10 @@ header("Access-Control-Allow-Origin: *");
 // Conexão com o banco de dados
 require_once '_dbcon.php';
 
-//pegar indicador
+/* ----------------------------- Pegar Indicador ---------------------------- */
 $indicador = $_POST['indicador'];
 
-// Login e Create
+/* ----------------------------- Login e create ----------------------------- */
 if ($indicador == 'user_new') {
   //pegar variaveis do form
   $email = $_POST['email'];
@@ -96,7 +96,7 @@ if ($indicador == 'user_login') {
   }
 }
 
-// Partipantes
+/* ------------------------------ Participantes ----------------------------- */
 if ($indicador == 'part_edit') {
 
   //pegar parametros
@@ -237,7 +237,7 @@ if ($indicador == 'part_tabela') {
   echo json_encode($data);
 }
 
-// Avaliações
+/* ------------------------------- Avaliações ------------------------------- */
 if ($indicador == 'aval_tabela') {
 
   $user_id = $_POST['user_id'];
@@ -288,7 +288,47 @@ if ($indicador == 'aval_del') {
     echo "erro: " . $conn->error;
   }
 }
-// Groups
+
+if ($indicador == 'aval_send') {
+
+  // Recuperar os dados do formulário
+  $id_part = $_POST['id_part'];
+  $id_survey = $_POST['id_survey'];
+  $id_grupo = $_POST['id_grupo'];
+  $resposta = $_POST['resposta'];
+
+
+  $errors = array();
+
+  // Aqui você pode realizar a lógica de criação de grupo e inserção no banco de dados
+  $query = "INSERT INTO respostas (id, id_part, id_aval,id_grupo, resposta,data)
+  VALUES (UUID(), '$id_part', '$id_survey','$id_grupo', '$resposta',NOW());";
+
+  $query2 = "UPDATE participantes_grupo SET fez_teste = CURRENT_TIMESTAMP
+  WHERE id_participante = '$id_part'
+  AND id_grupo = '$id_grupo';
+  ";
+
+  if ($conn->query($query) !== true) {
+    $errors[] = "Query 1 error: " . $conn->error;
+  }
+
+  if ($conn->query($query2) !== true) {
+    $errors[] = "Query 2 error: " . $conn->error;
+  }
+
+  if (empty($errors)) {
+    echo "ok"; // Ambas as queries foram bem-sucedidas
+  } else {
+    echo "Errors:<br>";
+    foreach ($errors as $error) {
+      echo $error . "<br>";
+    }
+  }
+
+}
+
+/* --------------------------------- Grupos --------------------------------- */
 if ($indicador == 'group_tabela') {
   // Pegar variáveis
   $user_id = $_POST['user_id'];
@@ -581,45 +621,7 @@ if ($indicador == 'group_edit') {
   //echo json_encode($data);
 }
 
-if ($indicador == 'aval_send') {
-
-  // Recuperar os dados do formulário
-  $id_part = $_POST['id_part'];
-  $id_survey = $_POST['id_survey'];
-  $id_grupo = $_POST['id_grupo'];
-  $resposta = $_POST['resposta'];
-
-
-  $errors = array();
-
-  // Aqui você pode realizar a lógica de criação de grupo e inserção no banco de dados
-  $query = "INSERT INTO respostas (id, id_part, id_aval,id_grupo, resposta,data)
-  VALUES (UUID(), '$id_part', '$id_survey','$id_grupo', '$resposta',NOW());";
-
-  $query2 = "UPDATE participantes_grupo SET fez_teste = CURRENT_TIMESTAMP
-  WHERE id_participante = '$id_part'
-  AND id_grupo = '$id_grupo';
-  ";
-
-  if ($conn->query($query) !== true) {
-    $errors[] = "Query 1 error: " . $conn->error;
-  }
-
-  if ($conn->query($query2) !== true) {
-    $errors[] = "Query 2 error: " . $conn->error;
-  }
-
-  if (empty($errors)) {
-    echo "ok"; // Ambas as queries foram bem-sucedidas
-  } else {
-    echo "Errors:<br>";
-    foreach ($errors as $error) {
-      echo $error . "<br>";
-    }
-  }
-
-}
-
+/* --------------------------------- Outros --------------------------------- */
 if ($indicador == 'rel_view') {
   $id_grupo = $_POST['id_grupo'];
 
@@ -628,9 +630,8 @@ if ($indicador == 'rel_view') {
   FROM perguntas p
   JOIN perguntas_categoria pc ON p.id_category = pc.id
   GROUP BY pc.nome";
-
   $result_contagem_perguntas = $conn->query($q_contagem_perguntas);
-
+  
   // Inicialize um array para armazenar a contagem de perguntas por categoria
   $contagem_perguntas = [];
 
@@ -640,21 +641,17 @@ if ($indicador == 'rel_view') {
     $contagem_perguntas[$categoria] = $quantidade;
   }
 
-
-
   // Consulta para obter todas as respostas de todos os participantes do grupo
   $respostas = "SELECT r.id_part, r.resposta, pg.tipo_participante
     FROM respostas r
     INNER JOIN participantes_grupo pg ON r.id_part = pg.id_participante AND r.id_grupo = pg.id_grupo
     WHERE r.id_grupo = '$id_grupo';";
-
   $q_respostas = $conn->query($respostas);
 
   // Loop pelos resultados das respostas dos participantes
   while ($resposta = $q_respostas->fetch_assoc()) {
     $tipo_participante = $resposta['tipo_participante'];
     $json_data = json_decode($resposta['resposta'], true);
-
 
     // Loop pelos dados das respostas de cada participante
     foreach ($json_data as $pergunta_id => $valor) {
@@ -673,7 +670,6 @@ if ($indicador == 'rel_view') {
         $categories_sum[$categoria_pergunta] = [
           'participante1' => 0,
           'outros_participantes' => 0
-
         ];
       }
 
@@ -683,7 +679,6 @@ if ($indicador == 'rel_view') {
         $categories_sum[$categoria_pergunta]['participante1'] += $valor;
       }
     }
-
   }
 
   // Função para determinar o nível com base no valor de quant_perguntas
