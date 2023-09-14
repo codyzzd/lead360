@@ -43,6 +43,7 @@ $dados_grupo = $q_grupo->fetch_assoc();
         <div class="col-12 col-lg-8">
           <div class="d-flex justify-content-between align-items-center">
             <h2 class="mb-3">
+              <small>Lider</small>
               <?php echo $dados_grupo['nome']; ?>
             </h2>
             <div class="text-md-end text-end d-grid gap-2 d-md-block">
