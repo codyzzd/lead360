@@ -356,6 +356,15 @@ while (
                        for="esc_part">Esconder participantes</label>
               </div>
 
+              <div class="form-check form-switch">
+                <input class="form-check-input"
+                       type="checkbox"
+                       role="switch"
+                       id="show_star">
+                <label class="form-check-label"
+                       for="show_star">Mostra estrelas</label>
+              </div>
+
             </div>
 
             <div class="row">
@@ -437,7 +446,7 @@ while (
         });
 
         // Toggle icons
-        $('#toggleIcons').change(function () {
+        $('#show_star').change(function () {
           $('#tabela_rel i').toggle();
         });
 
