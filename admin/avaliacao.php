@@ -446,6 +446,7 @@ while (
         // Toggle subtitles
         $('#esc_part').change(function () {
           $('#t_parts .card-subtitle').toggle();
+          $('#tabela-parts-status tr:not(.fw-bold)').toggle();
         });
 
         // Toggle icons
