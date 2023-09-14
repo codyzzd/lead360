@@ -867,7 +867,7 @@ while (
           function getStarString(nivel) {
             var starString = "";
             for (var i = 0; i < nivel; i++) {
-              starString += "<i class='fa fa-star d-none'></i>";
+              starString += "<i class='fa fa-star' style='display:none'></i>";
             }
             return starString;
           }
