@@ -939,8 +939,8 @@ while (
                 let status = '';
                 let fezaval = '';
 
-                if (row.participantes[i].enviou_email !== null) {
-                  const datac = moment(row.participantes[i].enviou_email).format("DD/MM/YYYY - HH:mm:ss");
+                if (row.enviou_email !== null) {
+                  const datac = moment(row.enviou_email).format("DD/MM/YYYY - HH:mm:ss");
                   status =
                     '<span class="badge text-bg-success" title="' +
                     datac +
@@ -950,8 +950,8 @@ while (
                     '<span class="badge text-bg-warning">Email OFF</span>';
                 }
 
-                if (row.participantes[i].fez_teste !== null) {
-                  const datac = moment(row.participantes[i].fez_teste).format("DD/MM/YYYY - HH:mm:ss");
+                if (row.fez_teste !== null) {
+                  const datac = moment(row.fez_teste).format("DD/MM/YYYY - HH:mm:ss");
                   fezaval =
                     '<span class="badge text-bg-success" title="' +
                     datac +
