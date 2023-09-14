@@ -347,19 +347,13 @@ while (
           <div class="modal-body">
             <div class="row">
 
-              <div class="col-md-3">
+              <div class="form-check form-switch">
+                <input class="form-check-input"
+                       type="checkbox"
+                       role="switch"
+                       id="esc_part">
                 <label class="form-check-label"
-                       for="toggleSubtitle">Toggle Subtitles</label>
-                <input type="checkbox"
-                       id="toggleSubtitle"
-                       class="form-check-input">
-              </div>
-              <div class="col-md-3">
-                <label class="form-check-label"
-                       for="toggleIcons">Toggle Icons</label>
-                <input type="checkbox"
-                       id="toggleIcons"
-                       class="form-check-input">
+                       for="esc_part">Esconder participantes</label>
               </div>
 
             </div>
@@ -438,7 +432,7 @@ while (
       $(document).ready(function () {
 
         // Toggle subtitles
-        $('#toggleSubtitle').change(function () {
+        $('#esc_part').change(function () {
           $('#t_parts .card_subtitle').toggle();
         });
 
