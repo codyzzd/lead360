@@ -444,6 +444,7 @@ while (
             // Trigger a click event on the anchor element to download the image
             downloadLink.click();
           };
+          console.log('Button clicked!');
         });
 
 
@@ -897,7 +898,7 @@ while (
               /*
                             $.each(resultados, function (index, row) {
                               //console.log(row);
-  
+
                                               for (let i = 0; i < row.participantes.length; i++) {
                                                 if (row.participantes[i].nome !== null) {
                                                   tabela_grupo.append(`
