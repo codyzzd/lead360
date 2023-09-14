@@ -394,6 +394,10 @@ while (
                     data-bs-dismiss="modal">
               Fechar
             </button>
+            <button class="btn btn-outline-primary"
+                    id="down_photo">
+              Baixar resultados
+            </button>
             <a href="grupo_detalhe.php?id="
                target="_blank"
                class="btn btn-primary"
@@ -413,76 +417,100 @@ while (
     <script>
       $(document).ready(function () {
 
+        $('#down_photo').click(function () {
+          // Get the div element to capture
+          const captureDiv = $('#modal_rel')[0];
 
-        new ClipboardJS(".avalurl", {
-          text: function (trigger) {
-            return $(trigger).data("clipboard-text");
-          },
+          // Create a new canvas element
+          const canvas = document.createElement('canvas');
+          canvas.width = captureDiv.offsetWidth;
+          canvas.height = captureDiv.offsetHeight;
+
+          // Get the 2D context of the canvas
+          const context = canvas.getContext('2d');
+
+          // Draw the content of the div onto the canvas
+          context.drawSvg.captureDiv, 0, 0, captureDiv.offsetWidth, captureDiv.offsetHeight);
+
+        // Create an anchor element to download the image
+        const downloadLink = document.createElement('a');
+        downloadLink.href = canvas.toDataURL('image/jpeg'); // or 'image/png' for PNG format
+        downloadLink.download = 'captured_image.jpg'; // or 'captured_image.png' for PNG format
+
+        // Trigger a click event on the anchor element to download the image
+        downloadLink.click();
+      });
+
+
+      new ClipboardJS(".avalurl", {
+        text: function (trigger) {
+          return $(trigger).data("clipboard-text");
+        },
+      })
+        .on("success", function (e) {
+          criarToastmini("success", "Link copiado!");
         })
-          .on("success", function (e) {
-            criarToastmini("success", "Link copiado!");
-          })
-          .on("error", function (e) {
-            criarToastmini("danger", "Erro ao copiar link.");
-          });
-
-        //modo cadastro
-        $("#btn_cadastro").click(function () {
-          $(".esq_cadastro, .dir_cards").show();
-          $(".envios").hide();
-        });
-        //modo envio
-        $("#btn_envio").click(function () {
-          $(".envios").show();
-          $(".esq_cadastro, .dir_cards").hide();
+        .on("error", function (e) {
+          criarToastmini("danger", "Erro ao copiar link.");
         });
 
-        function atualizarTabela() {
-          $.ajax({
-            type: "POST", // Alterado para POST
-            url: "../include/api.php", // Substitua pela URL correta
-            data: {
-              indicador: "group_tabela", // Adicione um parâmetro de ação para identificar a ação no servidor
-              user_id: "<?php echo $_SESSION['user_id']; ?>",
-              aval_id: "<?php echo $survey_id; ?>", // Recupera o valor do 'id' da URL
-            }, // Inclua o user_id como parâmetro
-            dataType: "json",
-            success: function (resultados) {
-              var tabelaCorpo = $("#tabela-cards");
-              var tabelaEnvios = $("#tabela-envios");
+      //modo cadastro
+      $("#btn_cadastro").click(function () {
+        $(".esq_cadastro, .dir_cards").show();
+        $(".envios").hide();
+      });
+      //modo envio
+      $("#btn_envio").click(function () {
+        $(".envios").show();
+        $(".esq_cadastro, .dir_cards").hide();
+      });
 
-              tabelaCorpo.empty(); // Limpar a tabela antes de preencher
-              tabelaEnvios.empty(); // Limpar a tabela antes de preencher
+      function atualizarTabela() {
+        $.ajax({
+          type: "POST", // Alterado para POST
+          url: "../include/api.php", // Substitua pela URL correta
+          data: {
+            indicador: "group_tabela", // Adicione um parâmetro de ação para identificar a ação no servidor
+            user_id: "<?php echo $_SESSION['user_id']; ?>",
+            aval_id: "<?php echo $survey_id; ?>", // Recupera o valor do 'id' da URL
+          }, // Inclua o user_id como parâmetro
+          dataType: "json",
+          success: function (resultados) {
+            var tabelaCorpo = $("#tabela-cards");
+            var tabelaEnvios = $("#tabela-envios");
 
-              // Preencher a tabela com os dados recebidos
-              $.each(resultados, function (index, row) {
+            tabelaCorpo.empty(); // Limpar a tabela antes de preencher
+            tabelaEnvios.empty(); // Limpar a tabela antes de preencher
 
-                for (let i = 0; i < row.participantes.length; i++) {
+            // Preencher a tabela com os dados recebidos
+            $.each(resultados, function (index, row) {
 
-                  if (row.participantes[i].enviou_email !== null) {
-                    datac = moment(row.participantes[i].enviou_email).format("DD/MM/YYYY - HH:mm:ss");
-                    status =
-                      '<span class="badge text-bg-success" title="' +
-                      datac +
-                      '">Email OK</span>';
-                  } else {
-                    status =
-                      '<span class="badge text-bg-warning">Email OFF</span>';
-                  }
+              for (let i = 0; i < row.participantes.length; i++) {
 
-                  if (row.participantes[i].fez_teste !== null) {
-                    datac = moment(row.participantes[i].fez_teste).format("DD/MM/YYYY - HH:mm:ss");
-                    fezaval =
-                      '<span class="badge text-bg-success" title="' +
-                      datac +
-                      '">Teste OK</span>';
-                  } else {
-                    fezaval =
-                      '<span class="badge text-bg-warning">Teste OFF</span>';
-                  }
+                if (row.participantes[i].enviou_email !== null) {
+                  datac = moment(row.participantes[i].enviou_email).format("DD/MM/YYYY - HH:mm:ss");
+                  status =
+                    '<span class="badge text-bg-success" title="' +
+                    datac +
+                    '">Email OK</span>';
+                } else {
+                  status =
+                    '<span class="badge text-bg-warning">Email OFF</span>';
+                }
 
-                  if (row.participantes[i].nome !== null) {
-                    tabelaEnvios.append(`
+                if (row.participantes[i].fez_teste !== null) {
+                  datac = moment(row.participantes[i].fez_teste).format("DD/MM/YYYY - HH:mm:ss");
+                  fezaval =
+                    '<span class="badge text-bg-success" title="' +
+                    datac +
+                    '">Teste OK</span>';
+                } else {
+                  fezaval =
+                    '<span class="badge text-bg-warning">Teste OFF</span>';
+                }
+
+                if (row.participantes[i].nome !== null) {
+                  tabelaEnvios.append(`
                       <tr>
                       <td>${row.participantes[0].nome}</td>
                       <td>${row.participantes[i].nome} <small class="text-body-secondary">(${row.participantes[i].email})</small></td>
@@ -495,10 +523,10 @@ while (
                       </td>
                       </tr>
                       `);
-                  }
                 }
+              }
 
-                tabelaCorpo.append(`
+              tabelaCorpo.append(`
                   <div class="col">
                   <div class="card h-100">
                   <div class="card-body" style="display: flex; flex-direction: column; height: 100%;">
@@ -506,21 +534,21 @@ while (
                   <div class="text_itens">
                   <h5 class="card-title">${row.participantes[0].nome}</h5>
                   ${row.participantes && row.participantes[1]
-                    ? `<p class="card-subtitle mb-2 text-body-secondary lineclamp2">${row.participantes[1].nome !== null ? row.participantes[1].nome : 'Ausente'}</p>`
-                    : '<p class="card-subtitle mb-2 text-body-secondary lineclamp2">Ausente</p>'
-                  }
+                  ? `<p class="card-subtitle mb-2 text-body-secondary lineclamp2">${row.participantes[1].nome !== null ? row.participantes[1].nome : 'Ausente'}</p>`
+                  : '<p class="card-subtitle mb-2 text-body-secondary lineclamp2">Ausente</p>'
+                }
                   ${row.participantes && row.participantes[2]
-                    ? `<p class="card-subtitle mb-2 text-body-secondary lineclamp2">${row.participantes[2].nome !== null ? row.participantes[2].nome : 'Ausente'}</p>`
-                    : '<p class="card-subtitle mb-2 text-body-secondary lineclamp2">Ausente</p>'
-                  }
+                  ? `<p class="card-subtitle mb-2 text-body-secondary lineclamp2">${row.participantes[2].nome !== null ? row.participantes[2].nome : 'Ausente'}</p>`
+                  : '<p class="card-subtitle mb-2 text-body-secondary lineclamp2">Ausente</p>'
+                }
                   ${row.participantes && row.participantes[3]
-                    ? `<p class="card-subtitle mb-2 text-body-secondary lineclamp2">${row.participantes[3].nome !== null ? row.participantes[3].nome : 'Ausente'}</p>`
-                    : '<p class="card-subtitle mb-2 text-body-secondary lineclamp2">Ausente</p>'
-                  }
+                  ? `<p class="card-subtitle mb-2 text-body-secondary lineclamp2">${row.participantes[3].nome !== null ? row.participantes[3].nome : 'Ausente'}</p>`
+                  : '<p class="card-subtitle mb-2 text-body-secondary lineclamp2">Ausente</p>'
+                }
                   ${row.participantes && row.participantes[4]
-                    ? `<p class="card-subtitle mb-2 text-body-secondary lineclamp2">${row.participantes[4].nome !== null ? row.participantes[4].nome : 'Ausente'}</p>`
-                    : '<p class="card-subtitle mb-2 text-body-secondary lineclamp2">Ausente</p>'
-                  }
+                  ? `<p class="card-subtitle mb-2 text-body-secondary lineclamp2">${row.participantes[4].nome !== null ? row.participantes[4].nome : 'Ausente'}</p>`
+                  : '<p class="card-subtitle mb-2 text-body-secondary lineclamp2">Ausente</p>'
+                }
 
 
                   </div>
@@ -528,13 +556,13 @@ while (
                   <div class="buttons_itens" style="margin-top: auto;">
 
                   <button type="button" class="btn btn-sm btn-outline-primary group_rel" data-bs-toggle="modal" data-bs-target="#modal_rel" data-group-id="${row.id_grupo
-                  }"><span class="btn-label"><i class="fa fa-chart-simple me-2"></i></span>Resultado</button>
+                }"><span class="btn-label"><i class="fa fa-chart-simple me-2"></i></span>Resultado</button>
 
                   <!--<button type="button" class="btn btn-sm btn-light editar_group"  data-bs-toggle="modal" data-bs-target="#modal_edit" data-group-id="${row.id_grupo
-                  }"><span class="btn-label"><i class="fa fa-pen-to-square"></i></span></button>-->
+                }"><span class="btn-label"><i class="fa fa-pen-to-square"></i></span></button>-->
 
                   <button type="button" class="btn btn-sm btn-light group_del" data-bs-toggle="modal" data-bs-target="#modal_excluir" data-group-id="${row.id_grupo
-                  }"><span class="btn-label"><i class="fa fa-trash"></i></span></button>
+                }"><span class="btn-label"><i class="fa fa-trash"></i></span></button>
 
                   </div>
 
@@ -542,363 +570,363 @@ while (
                   </div>
                   </div>
                             `);
-              });
-            },
-          });
-        }
-        // Fazer a requisição Ajax ao carregar a tabela ao iniciar
-        atualizarTabela();
-
-        $(".container").on("click", ".enviar_link", function () {
-          var partId = $(this).attr("data-participant-id"); // pega o participante
-          var groupId = $(this).attr("data-group-id"); //pega o grupo
-          var surveyId = $(this).attr("data-survey-id"); //pega a survey
-
-          // Enviar a solicitação Ajax
-          $.ajax({
-            type: "POST",
-            url: "../include/api.php", // Página PHP que irá processar os dados
-            data: {
-              part_id: partId,
-              group_id: groupId,
-              survey_id: surveyId,
-              indicador: "enviar_email",
-            },
-            success: function (response) {
-              // Manipular a resposta da solicitação Ajax aqui
-              if (response === "ok") {
-                criarToastmini("success", "E-mail enviado!");
-                atualizarTabela(); // Atualizar a tabela após a criação da avaliação
-              } else {
-                criarToastmini("danger", "Erro: " + response);
-              }
-            },
-            error: function (xhr, status, error) {
-              criarToastmini("danger", error);
-            },
-          });
-
-        });
-
-        //criar grupo
-        $("#form_new").submit(function (event) {
-          event.preventDefault(); // Impedir que o formulário seja enviado tradicionalmente
-          var formData = $(this).serialize(); // Serializar os campos do formulário
-
-          var user_id = "<?php echo $_SESSION['user_id']; ?>"; // Obtém o ID do usuário da sessão
-          var aval_id = "<?php echo $survey_id; ?>"; // Obtém survey id
-
-          // Adiciona a variável user_id ao formData
-          formData += "&user_id=" + user_id;
-          formData += "&aval_id=" + aval_id;
-          formData += "&indicador=group_new";
-
-          // Enviar a solicitação Ajax
-          $.ajax({
-            type: "POST",
-            url: "../include/api.php", // Página PHP que irá processar os dados
-            data: formData,
-            success: function (response) {
-              // Manipular a resposta da solicitação Ajax aqui
-
-              if (response === "ok") {
-                criarToastmini("success", "Novo grupo preparado!");
-                atualizarTabela(); // Atualizar a tabela após a criação da avaliação
-              } else {
-                criarToastmini("danger", "Erro: " + response);
-              }
-            },
-            error: function (xhr, status, error) {
-              criarToastmini("danger", error);
-            },
-          });
-        });
-
-        // Primeiro excluir
-        $(".container").on("click", ".group_del", function () {
-          var groupId = $(this).attr("data-group-id"); // Obter o valor do atributo data-participant-id
-          var groupName = $(this).closest(".card").find(".card-title").text();
-          $("#group_del2").attr("data-group-id", groupId); // Por exemplo, passar o valor para outro botão com a classe "btn-process"
-          $("#nome").text(groupName); // Passar o valor para o <span>
-        });
-        // Excluir participante
-        $("#group_del2").on("click", function () {
-          var groupId = $(this).attr("data-group-id");
-          $.ajax({
-            type: "POST",
-            url: "../include/api.php",
-            data: {
-              id_group_del: groupId,
-              indicador: "group_del",
-            },
-
-            success: function (response) {
-              if (response === "ok") {
-                $("#modal_del_close").click(); //fechar o canvas
-                criarToastmini("success", "Grupo excluído do sistema!");
-                atualizarTabela(); // Atualizar a tabela após a criação da avaliação
-              } else {
-              }
-            },
-            error: function (xhr, status, error) {
-              criarToastmini("danger", error);
-            },
-          });
-        });
-
-        // Função para popular select e selecionar a opção correta
-        function populateSelect(inputId, Ids) {
-          var select = $("#" + inputId);
-
-          // Criar um objeto de dados para enviar via POST
-          var postData = {
-            indicador: "group_view_select",
-            creator_id: "<?php echo $_SESSION['user_id']; ?>",
-          };
-
-          // Popula as opções do select
-          $.ajax({
-            type: "POST",
-            url: "../include/api.php", // Substitua pela URL correta para buscar as opções
-            data: postData, // Enviar o objeto de dados via POST
-            dataType: "json",
-            success: function (options) {
-              select.empty();
-              select.append(new Option("Selecione...", ""));
-
-              $.each(options, function (index, option) {
-                select.append(new Option(option.nome, option.id));
-              });
-
-              // Seleciona a opção correta
-              if (Ids === null) {
-                select.val("");
-              } else {
-                select.val(Ids);
-              }
-
-              //console.log(Ids);
-            },
-            error: function (xhr, status, error) {
-              console.log(error); // Tratar erros, se necessário
-            },
-          });
-        }
-
-        function setupValidation(formId) {
-          var form = $("#" + formId);
-          var selects = form.find(".select-validation");
-          var submitButton = form.find(".submit-button");
-
-          selects.on("change", function () {
-            var selectedValues = [];
-
-            selects.removeClass("is-invalid");
-            submitButton.prop("disabled", false);
-
-            selects.each(function () {
-              var value = $(this).val();
-
-              if (value !== "") {
-                if (selectedValues.indexOf(value) !== -1) {
-                  $(this).addClass("is-invalid");
-                  submitButton.prop("disabled", true);
-                }
-                selectedValues.push(value);
-              }
             });
-          });
-        }
-        setupValidation("form_new");
-        setupValidation("form_edit");
-
-        // Primeiro editar
-        $(".container").on("click", ".editar_group", function () {
-          //pega o valor que esta no botao de icone do card
-          var groupId = $(this).attr("data-group-id");
-          //coloca o valor no botao #group_edit2
-          $("#group_edit2").attr("data-group-id", groupId);
-
-          // Criar um objeto de dados para enviar via POST
-          var postData = {
-            group_id: groupId, // Usar 'group_id' como chave no objeto de dados
-            indicador: "group_view",
-          };
-
-          // Fazer uma solicitação AJAX para buscar os dados do participante pelo ID
-          $.ajax({
-            type: "POST",
-            url: "../include/api.php", // Substitua pela URL correta para buscar os dados do servidor
-            data: postData, // Enviar o objeto de dados via POST
-            dataType: "json",
-            success: function (data) {
-              // Popula os selects e seleciona as opções corretas
-              var selectIds = [
-                "lider-edit",
-                "part1-edit",
-                "part2-edit",
-                "part3-edit",
-                "part4-edit",
-              ];
-
-              selectIds.forEach(function (selectId, index) {
-                var idParticipante = data[index]
-                  ? data[index].id_participante
-                  : null;
-                populateSelect(selectId, idParticipante);
-              });
-
-              //$("#id_edit").val(data[0].id);
-              //console.log(data);
-            },
-            error: function (xhr, status, error) {
-              console.log(error); // Tratar erros, se necessário
-            },
-          });
+          },
         });
-        // Salvar alterações
-        $("#form_edit").submit(function (event) {
-          event.preventDefault(); // Impedir que o formulário seja enviado tradicionalmente
-          var formData = $(this).serialize(); // Serializar os campos do formulário
-          var groupId = $("#group_edit2").attr("data-group-id");
+      }
+      // Fazer a requisição Ajax ao carregar a tabela ao iniciar
+      atualizarTabela();
 
-          // Adicionar o groupId ao formData
-          formData += "&groupId=" + groupId;
+      $(".container").on("click", ".enviar_link", function () {
+        var partId = $(this).attr("data-participant-id"); // pega o participante
+        var groupId = $(this).attr("data-group-id"); //pega o grupo
+        var surveyId = $(this).attr("data-survey-id"); //pega a survey
 
-          $.ajax({
-            type: "POST",
-            url: "../include/api.php",
-            data: formData + "&indicador=group_edit", // Incluir os campos serializados e o indicador
-            success: function (response) {
-              if (response === "ok") {
-                $("#modal_edit_close").click(); //fechar o canvas
-                criarToastmini("success", "Participante atualizado com sucesso!");
-                atualizarTabela(); // Atualizar a tabela após a criação da avaliação
-
-              } else {
-                criarToastmini("danger", response);
-                //console.log(response);
-              }
-            },
-            error: function (xhr, status, error) {
-              //notyf.error(error);
-              criarToastmini("danger", error);
-              //console.log(response);
-            },
-          });
-        });
-
-        // Ver resultados
-        $(".container").on("click", ".group_rel", function () {
-          var groupId = $(this).attr("data-group-id"); // Obter o valor do atributo data-participant-id
-
-          // Substitua "groupId" pelo valor desejado
-          var novoHref = "grupo_detalhe.php?id=" + groupId;
-
-          // Selecione o elemento <a> pelo ID "link_grupo_detalhe" e atualize o atributo href
-          $("#link_grupo_detalhe").attr("href", novoHref);
-
-          var postData = {
-            id_grupo: groupId, // Usar 'group_id' como chave no objeto de dados
-            indicador: "rel_view",
-          };
-
-          // Função para gerar uma string com estrelas com base no nível
-          function getStarString(nivel) {
-            var starString = "";
-            for (var i = 0; i < nivel; i++) {
-              starString += "<i class='fa fa-star'></i>";
+        // Enviar a solicitação Ajax
+        $.ajax({
+          type: "POST",
+          url: "../include/api.php", // Página PHP que irá processar os dados
+          data: {
+            part_id: partId,
+            group_id: groupId,
+            survey_id: surveyId,
+            indicador: "enviar_email",
+          },
+          success: function (response) {
+            // Manipular a resposta da solicitação Ajax aqui
+            if (response === "ok") {
+              criarToastmini("success", "E-mail enviado!");
+              atualizarTabela(); // Atualizar a tabela após a criação da avaliação
+            } else {
+              criarToastmini("danger", "Erro: " + response);
             }
-            return starString;
-          }
-
-          //vai fazer a tabela de notas
-          $.ajax({
-            type: "POST",
-            url: "../include/api.php", // Substitua pela URL correta para buscar os dados do servidor
-            data: postData, // Enviar o objeto de dados via POST
-            dataType: "json",
-            success: function (response) {
-              var tabelaRel = $("#tabela-rel");
-              tabelaRel.empty();
-              // Itera sobre o JSON e constrói a tabela
-              $.each(response, function (index, item) {
-                var categoria = item.categoria;
-                var participante1 = item.participante1;
-                var outros_participantes = item.outros_participantes;
-                var nivel_lider = item.nivel_lider;
-                var nivel_outros = item.nivel_outros;
-                var nivelLiderClass = "nota_" + item.nivel_lider; // Concatena o valor de item.nivel_lider
-                var nivelOutrosClass = "nota_" + item.nivel_outros; // Concatena o valor de item.nivel_lider
-
-                var newRow = $("<tr>");
-                newRow.append("<td>" + categoria + "</td>");
-                // Adicionar estrelas com base no nível
-                newRow.append("<td  class='" + nivelLiderClass + " text-end'><span class='me-2'>" + getStarString(nivel_lider) + "<br class='empurra d-sm-none'></span>" + participante1 + " </td>");
-                newRow.append("<td  class='" + nivelOutrosClass + " text-end'> <span class='me-2'>" + getStarString(nivel_outros) + "</span><br class='empurra d-sm-none'>" + outros_participantes + "</td>");
-
-                //newRow.append("<td class='" + nivelLiderClass + "'>" + participante1 + "</td>");
-                //newRow.append("<td class='" + nivelOutrosClass + "'>" + outros_participantes + "</td>");
-                $("#tabela-rel").append(newRow);
-              });
-
-            },
-            error: function (xhr, status, error) {
-              console.log(error); // Tratar erros, se necessário
-            },
-          });
-
-          // Prencher os dados dos participantes
-          $.ajax({
-            type: "POST",
-            url: "../include/api.php",
-            data: {
-              indicador: "group_view",
-              group_id: groupId,
-            },
-            dataType: "json",
-            success: function (resultados) {
-              var tabela_grupo = $("#tabela-parts-status");
-              tabela_grupo.empty(); // Limpar a tabela antes de preencher
-              /*
-                            $.each(resultados, function (index, row) {
-                              //console.log(row);
-
-                                              for (let i = 0; i < row.participantes.length; i++) {
-                                                if (row.participantes[i].nome !== null) {
-                                                  tabela_grupo.append(`
-                                                                    <tr>
-                                                                    <td>${row.participantes[0].nome}</td>
-                                                                    <td>${row.participantes[i].nome} <small class="text-body-secondary">(${row.participantes[i].email})</small></td>
-                                                                    <td>${status} ${fezaval}</td>
-                                                                    <td class="text-end">
-                                                                    <button class="btn btn-light btn-sm avalurl" type="button" data-clipboard-text="https://LiderScan.com.br/teste.php?id_part=${row.participantes[i].id}&id_survey=<?php echo $survey_id; ?>&id_grupo=${row.id_grupo}"><span class="btn-label"><i class="fa fa-link me-2"></i></span>Link</button>
-                                                                    <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal_excluir" data-participant-id="${row.participantes[i].id}"><span class="btn-label"><i class="fa fa-paper-plane me-2"></i></span>Enviar</button>
-                                                                    </td>
-                                                                    </tr>
-                                                                    `);
-                                                  console.log(row.participantes[0].nome);
-                                                }
-                                              }
-                            });*/
-              var t_parts = $("#t_parts");
-              t_parts.empty(); // Limpar a tabela antes de preencher
-
-              // Verifique se há pelo menos um resultado
-              if (resultados.length > 0) {
-                // Coloque o primeiro "nome" em um elemento h5
-                t_parts.append(`<h5 class="card-title" id="t_lider">${resultados[0].nome}</h5>`);
-
-                // Crie um elemento p para cada um dos demais "nomes"
-                resultados.slice(1).forEach(function (row) {
-                  const nome = row.nome !== null ? row.nome : "Ausente";
-                  t_parts.append(`<p class="card-subtitle text-body-secondary">${nome}</p>`);
-                });
-              }
-            },
-          });
-
+          },
+          error: function (xhr, status, error) {
+            criarToastmini("danger", error);
+          },
         });
+
+      });
+
+      //criar grupo
+      $("#form_new").submit(function (event) {
+        event.preventDefault(); // Impedir que o formulário seja enviado tradicionalmente
+        var formData = $(this).serialize(); // Serializar os campos do formulário
+
+        var user_id = "<?php echo $_SESSION['user_id']; ?>"; // Obtém o ID do usuário da sessão
+        var aval_id = "<?php echo $survey_id; ?>"; // Obtém survey id
+
+        // Adiciona a variável user_id ao formData
+        formData += "&user_id=" + user_id;
+        formData += "&aval_id=" + aval_id;
+        formData += "&indicador=group_new";
+
+        // Enviar a solicitação Ajax
+        $.ajax({
+          type: "POST",
+          url: "../include/api.php", // Página PHP que irá processar os dados
+          data: formData,
+          success: function (response) {
+            // Manipular a resposta da solicitação Ajax aqui
+
+            if (response === "ok") {
+              criarToastmini("success", "Novo grupo preparado!");
+              atualizarTabela(); // Atualizar a tabela após a criação da avaliação
+            } else {
+              criarToastmini("danger", "Erro: " + response);
+            }
+          },
+          error: function (xhr, status, error) {
+            criarToastmini("danger", error);
+          },
+        });
+      });
+
+      // Primeiro excluir
+      $(".container").on("click", ".group_del", function () {
+        var groupId = $(this).attr("data-group-id"); // Obter o valor do atributo data-participant-id
+        var groupName = $(this).closest(".card").find(".card-title").text();
+        $("#group_del2").attr("data-group-id", groupId); // Por exemplo, passar o valor para outro botão com a classe "btn-process"
+        $("#nome").text(groupName); // Passar o valor para o <span>
+      });
+      // Excluir participante
+      $("#group_del2").on("click", function () {
+        var groupId = $(this).attr("data-group-id");
+        $.ajax({
+          type: "POST",
+          url: "../include/api.php",
+          data: {
+            id_group_del: groupId,
+            indicador: "group_del",
+          },
+
+          success: function (response) {
+            if (response === "ok") {
+              $("#modal_del_close").click(); //fechar o canvas
+              criarToastmini("success", "Grupo excluído do sistema!");
+              atualizarTabela(); // Atualizar a tabela após a criação da avaliação
+            } else {
+            }
+          },
+          error: function (xhr, status, error) {
+            criarToastmini("danger", error);
+          },
+        });
+      });
+
+      // Função para popular select e selecionar a opção correta
+      function populateSelect(inputId, Ids) {
+        var select = $("#" + inputId);
+
+        // Criar um objeto de dados para enviar via POST
+        var postData = {
+          indicador: "group_view_select",
+          creator_id: "<?php echo $_SESSION['user_id']; ?>",
+        };
+
+        // Popula as opções do select
+        $.ajax({
+          type: "POST",
+          url: "../include/api.php", // Substitua pela URL correta para buscar as opções
+          data: postData, // Enviar o objeto de dados via POST
+          dataType: "json",
+          success: function (options) {
+            select.empty();
+            select.append(new Option("Selecione...", ""));
+
+            $.each(options, function (index, option) {
+              select.append(new Option(option.nome, option.id));
+            });
+
+            // Seleciona a opção correta
+            if (Ids === null) {
+              select.val("");
+            } else {
+              select.val(Ids);
+            }
+
+            //console.log(Ids);
+          },
+          error: function (xhr, status, error) {
+            console.log(error); // Tratar erros, se necessário
+          },
+        });
+      }
+
+      function setupValidation(formId) {
+        var form = $("#" + formId);
+        var selects = form.find(".select-validation");
+        var submitButton = form.find(".submit-button");
+
+        selects.on("change", function () {
+          var selectedValues = [];
+
+          selects.removeClass("is-invalid");
+          submitButton.prop("disabled", false);
+
+          selects.each(function () {
+            var value = $(this).val();
+
+            if (value !== "") {
+              if (selectedValues.indexOf(value) !== -1) {
+                $(this).addClass("is-invalid");
+                submitButton.prop("disabled", true);
+              }
+              selectedValues.push(value);
+            }
+          });
+        });
+      }
+      setupValidation("form_new");
+      setupValidation("form_edit");
+
+      // Primeiro editar
+      $(".container").on("click", ".editar_group", function () {
+        //pega o valor que esta no botao de icone do card
+        var groupId = $(this).attr("data-group-id");
+        //coloca o valor no botao #group_edit2
+        $("#group_edit2").attr("data-group-id", groupId);
+
+        // Criar um objeto de dados para enviar via POST
+        var postData = {
+          group_id: groupId, // Usar 'group_id' como chave no objeto de dados
+          indicador: "group_view",
+        };
+
+        // Fazer uma solicitação AJAX para buscar os dados do participante pelo ID
+        $.ajax({
+          type: "POST",
+          url: "../include/api.php", // Substitua pela URL correta para buscar os dados do servidor
+          data: postData, // Enviar o objeto de dados via POST
+          dataType: "json",
+          success: function (data) {
+            // Popula os selects e seleciona as opções corretas
+            var selectIds = [
+              "lider-edit",
+              "part1-edit",
+              "part2-edit",
+              "part3-edit",
+              "part4-edit",
+            ];
+
+            selectIds.forEach(function (selectId, index) {
+              var idParticipante = data[index]
+                ? data[index].id_participante
+                : null;
+              populateSelect(selectId, idParticipante);
+            });
+
+            //$("#id_edit").val(data[0].id);
+            //console.log(data);
+          },
+          error: function (xhr, status, error) {
+            console.log(error); // Tratar erros, se necessário
+          },
+        });
+      });
+      // Salvar alterações
+      $("#form_edit").submit(function (event) {
+        event.preventDefault(); // Impedir que o formulário seja enviado tradicionalmente
+        var formData = $(this).serialize(); // Serializar os campos do formulário
+        var groupId = $("#group_edit2").attr("data-group-id");
+
+        // Adicionar o groupId ao formData
+        formData += "&groupId=" + groupId;
+
+        $.ajax({
+          type: "POST",
+          url: "../include/api.php",
+          data: formData + "&indicador=group_edit", // Incluir os campos serializados e o indicador
+          success: function (response) {
+            if (response === "ok") {
+              $("#modal_edit_close").click(); //fechar o canvas
+              criarToastmini("success", "Participante atualizado com sucesso!");
+              atualizarTabela(); // Atualizar a tabela após a criação da avaliação
+
+            } else {
+              criarToastmini("danger", response);
+              //console.log(response);
+            }
+          },
+          error: function (xhr, status, error) {
+            //notyf.error(error);
+            criarToastmini("danger", error);
+            //console.log(response);
+          },
+        });
+      });
+
+      // Ver resultados
+      $(".container").on("click", ".group_rel", function () {
+        var groupId = $(this).attr("data-group-id"); // Obter o valor do atributo data-participant-id
+
+        // Substitua "groupId" pelo valor desejado
+        var novoHref = "grupo_detalhe.php?id=" + groupId;
+
+        // Selecione o elemento <a> pelo ID "link_grupo_detalhe" e atualize o atributo href
+        $("#link_grupo_detalhe").attr("href", novoHref);
+
+        var postData = {
+          id_grupo: groupId, // Usar 'group_id' como chave no objeto de dados
+          indicador: "rel_view",
+        };
+
+        // Função para gerar uma string com estrelas com base no nível
+        function getStarString(nivel) {
+          var starString = "";
+          for (var i = 0; i < nivel; i++) {
+            starString += "<i class='fa fa-star'></i>";
+          }
+          return starString;
+        }
+
+        //vai fazer a tabela de notas
+        $.ajax({
+          type: "POST",
+          url: "../include/api.php", // Substitua pela URL correta para buscar os dados do servidor
+          data: postData, // Enviar o objeto de dados via POST
+          dataType: "json",
+          success: function (response) {
+            var tabelaRel = $("#tabela-rel");
+            tabelaRel.empty();
+            // Itera sobre o JSON e constrói a tabela
+            $.each(response, function (index, item) {
+              var categoria = item.categoria;
+              var participante1 = item.participante1;
+              var outros_participantes = item.outros_participantes;
+              var nivel_lider = item.nivel_lider;
+              var nivel_outros = item.nivel_outros;
+              var nivelLiderClass = "nota_" + item.nivel_lider; // Concatena o valor de item.nivel_lider
+              var nivelOutrosClass = "nota_" + item.nivel_outros; // Concatena o valor de item.nivel_lider
+
+              var newRow = $("<tr>");
+              newRow.append("<td>" + categoria + "</td>");
+              // Adicionar estrelas com base no nível
+              newRow.append("<td  class='" + nivelLiderClass + " text-end'><span class='me-2'>" + getStarString(nivel_lider) + "<br class='empurra d-sm-none'></span>" + participante1 + " </td>");
+              newRow.append("<td  class='" + nivelOutrosClass + " text-end'> <span class='me-2'>" + getStarString(nivel_outros) + "</span><br class='empurra d-sm-none'>" + outros_participantes + "</td>");
+
+              //newRow.append("<td class='" + nivelLiderClass + "'>" + participante1 + "</td>");
+              //newRow.append("<td class='" + nivelOutrosClass + "'>" + outros_participantes + "</td>");
+              $("#tabela-rel").append(newRow);
+            });
+
+          },
+          error: function (xhr, status, error) {
+            console.log(error); // Tratar erros, se necessário
+          },
+        });
+
+        // Prencher os dados dos participantes
+        $.ajax({
+          type: "POST",
+          url: "../include/api.php",
+          data: {
+            indicador: "group_view",
+            group_id: groupId,
+          },
+          dataType: "json",
+          success: function (resultados) {
+            var tabela_grupo = $("#tabela-parts-status");
+            tabela_grupo.empty(); // Limpar a tabela antes de preencher
+            /*
+                          $.each(resultados, function (index, row) {
+                            //console.log(row);
+
+                                            for (let i = 0; i < row.participantes.length; i++) {
+                                              if (row.participantes[i].nome !== null) {
+                                                tabela_grupo.append(`
+                                                                  <tr>
+                                                                  <td>${row.participantes[0].nome}</td>
+                                                                  <td>${row.participantes[i].nome} <small class="text-body-secondary">(${row.participantes[i].email})</small></td>
+                                                                  <td>${status} ${fezaval}</td>
+                                                                  <td class="text-end">
+                                                                  <button class="btn btn-light btn-sm avalurl" type="button" data-clipboard-text="https://LiderScan.com.br/teste.php?id_part=${row.participantes[i].id}&id_survey=<?php echo $survey_id; ?>&id_grupo=${row.id_grupo}"><span class="btn-label"><i class="fa fa-link me-2"></i></span>Link</button>
+                                                                  <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal_excluir" data-participant-id="${row.participantes[i].id}"><span class="btn-label"><i class="fa fa-paper-plane me-2"></i></span>Enviar</button>
+                                                                  </td>
+                                                                  </tr>
+                                                                  `);
+                                                console.log(row.participantes[0].nome);
+                                              }
+                                            }
+                          });*/
+            var t_parts = $("#t_parts");
+            t_parts.empty(); // Limpar a tabela antes de preencher
+
+            // Verifique se há pelo menos um resultado
+            if (resultados.length > 0) {
+              // Coloque o primeiro "nome" em um elemento h5
+              t_parts.append(`<h5 class="card-title" id="t_lider">${resultados[0].nome}</h5>`);
+
+              // Crie um elemento p para cada um dos demais "nomes"
+              resultados.slice(1).forEach(function (row) {
+                const nome = row.nome !== null ? row.nome : "Ausente";
+                t_parts.append(`<p class="card-subtitle text-body-secondary">${nome}</p>`);
+              });
+            }
+          },
+        });
+
+      });
 
       });
     </script>
