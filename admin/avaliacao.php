@@ -374,7 +374,7 @@ while (
               <div class="col-12 col-xl-4">
                 <div id="t_parts"
                      class="mb-5"></div>
-                <table class="table mb-5 d-none">
+                <table class="table mb-5">
                   <thead>
                     <tr>
                       <th scope="col"
@@ -931,27 +931,28 @@ while (
             success: function (resultados) {
               var tabela_grupo = $("#tabela-parts-status");
               tabela_grupo.empty(); // Limpar a tabela antes de preencher
-              /*
-                            $.each(resultados, function (index, row) {
-                              //console.log(row);
 
-                                              for (let i = 0; i < row.participantes.length; i++) {
-                                                if (row.participantes[i].nome !== null) {
-                                                  tabela_grupo.append(`
-                                                                    <tr>
-                                                                    <td>${row.participantes[0].nome}</td>
-                                                                    <td>${row.participantes[i].nome} <small class="text-body-secondary">(${row.participantes[i].email})</small></td>
-                                                                    <td>${status} ${fezaval}</td>
-                                                                    <td class="text-end">
-                                                                    <button class="btn btn-light btn-sm avalurl" type="button" data-clipboard-text="https://LiderScan.com.br/teste.php?id_part=${row.participantes[i].id}&id_survey=<?php echo $survey_id; ?>&id_grupo=${row.id_grupo}"><span class="btn-label"><i class="fa fa-link me-2"></i></span>Link</button>
-                                                                    <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal_excluir" data-participant-id="${row.participantes[i].id}"><span class="btn-label"><i class="fa fa-paper-plane me-2"></i></span>Enviar</button>
-                                                                    </td>
-                                                                    </tr>
-                                                                    `);
-                                                  console.log(row.participantes[0].nome);
-                                                }
-                                              }
-                            });*/
+              $.each(resultados, function (index, row) {
+                //console.log(row);
+
+                for (let i = 0; i < row.participantes.length; i++) {
+                  if (row.participantes[i].nome !== null) {
+                    tabela_grupo.append(`
+                      <tr>
+                      <td>${row.participantes[0].nome}</td>
+                      <td>${row.participantes[i].nome} <small class="text-body-secondary">(${row.participantes[i].email})</small></td>
+                      <td>${status} ${fezaval}</td>
+                      <td class="text-end">
+                      <button class="btn btn-light btn-sm avalurl" type="button" data-clipboard-text="https://LiderScan.com.br/teste.php?id_part=${row.participantes[i].id}&id_survey=<?php echo $survey_id; ?>&id_grupo=${row.id_grupo}"><span class="btn-label"><i class="fa fa-link me-2"></i></span>Link</button>
+                      <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal_excluir" data-participant-id="${row.participantes[i].id}"><span class="btn-label"><i class="fa fa-paper-plane me-2"></i></span>Enviar</button>
+                      </td>
+                      </tr>
+                      `);
+                    console.log(row.participantes[0].nome);
+                  }
+                }
+              });
+
               var t_parts = $("#t_parts");
               t_parts.empty(); // Limpar a tabela antes de preencher
 
