@@ -345,44 +345,46 @@ while (
           </div>
 
           <div class="modal-body">
-            <div class="col-12 col-lg-2">
-              <div id="t_parts"
-                   class="mb-5"></div>
-              <table class="table mb-5 d-none">
-                <thead>
-                  <tr>
-                    <th scope="col"
-                        class="col-auto">Lider</th>
-                    <th scope="col"
-                        class="col-auto">Participante</th>
-                    <th scope="col"
-                        class="col-auto">Status</th>
+            <div class="row">
+              <div class="col-12 col-lg-2">
+                <div id="t_parts"
+                     class="mb-5"></div>
+                <table class="table mb-5 d-none">
+                  <thead>
+                    <tr>
+                      <th scope="col"
+                          class="col-auto">Lider</th>
+                      <th scope="col"
+                          class="col-auto">Participante</th>
+                      <th scope="col"
+                          class="col-auto">Status</th>
 
-                    <th scope="col"
-                        class="col-3 col-sm-2 text-end">Opções</th>
-                  </tr>
-                </thead>
-                <tbody id="tabela-parts-status">
-                  <!-- Os dados serão preenchidos aqui via Ajax -->
-                </tbody>
-              </table>
-            </div>
+                      <th scope="col"
+                          class="col-3 col-sm-2 text-end">Opções</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tabela-parts-status">
+                    <!-- Os dados serão preenchidos aqui via Ajax -->
+                  </tbody>
+                </table>
+              </div>
 
-            <div class="col-12 col-lg-10">
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col">Critério</th>
-                    <th scope="col"
-                        class="text-end">Autoavaliação</th>
-                    <th scope="col"
-                        class="text-end">Grupo</th>
-                  </tr>
-                </thead>
-                <tbody id="tabela-rel">
+              <div class="col-12 col-lg-10">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Critério</th>
+                      <th scope="col"
+                          class="text-end">Autoavaliação</th>
+                      <th scope="col"
+                          class="text-end">Grupo</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tabela-rel">
 
-                </tbody>
-              </table>
+                  </tbody>
+                </table>
+              </div>
             </div>
 
           </div>
