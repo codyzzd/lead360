@@ -834,9 +834,11 @@ if ($indicador == 'enviar_email') {
 
 }
 
-/* --------------------------------- funções -------------------------------- */
-
 $conn->close(); //Finaliza a conexão com o banco
+
+/* -------------------------------------------------------------------------- */
+/*                                   Funções                                  */
+/* -------------------------------------------------------------------------- */
 
 function enviarEmailCurl($apiKey, $email_part, $nome_part, $nome_lider, $link_email)
 {
