@@ -345,7 +345,7 @@ while (
           </div>
 
           <div class="modal-body">
-            <div class="row">
+            <div class="row mb-3">
 
               <div class="col-auto">
                 <div class="form-check form-switch">
@@ -450,7 +450,7 @@ while (
 
         // Toggle icons
         $('#show_star').change(function () {
-          $('#tabela_rel i').toggle();
+          $('#tabela-rel i').toggle();
         });
 
         $('#down_photo').click(function () {
@@ -867,7 +867,7 @@ while (
           function getStarString(nivel) {
             var starString = "";
             for (var i = 0; i < nivel; i++) {
-              starString += "<i class='fa fa-star'></i>";
+              starString += "<i class='fa fa-star d-none'></i>";
             }
             return starString;
           }
