@@ -66,8 +66,39 @@
   opacity: 0.5;
 }
 
+@media (max-width: 767px) {
+}
+
+/* Extra Small Devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  #tabela-rel i {
+    font-size: 10px;
+  }
+}
+
+/* Small Devices (phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  /* Your CSS rules for small devices here */
+}
+
+/* Medium Devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* Your CSS rules for medium devices here */
+}
+
+/* Large Devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  /* Your CSS rules for large devices here */
+}
+
+/* Extra Large Devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  /* Your CSS rules for extra large devices here */
+}
+
 @media print {
+  /*
   table .resultados {
     page-break-inside: avoid;
-  }
+  }*/
 }
