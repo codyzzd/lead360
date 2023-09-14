@@ -66,14 +66,15 @@
   opacity: 0.5;
 }
 
+#tabela-rel i {
+  font-size: 10px;
+}
+
 @media (max-width: 767px) {
 }
 
 /* Extra Small Devices (phones, less than 576px) */
 @media (max-width: 575.98px) {
-  #tabela-rel i {
-    font-size: 10px !important;
-  }
 }
 
 /* Small Devices (phones, 576px and up) */
