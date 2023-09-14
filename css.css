@@ -93,8 +93,7 @@
 }
 
 @media print {
-  /*
-  table .resultados {
-    page-break-inside: avoid;
-  }*/
+  .resultados {
+    page-break-before: always;
+  }
 }
