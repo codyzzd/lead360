@@ -419,20 +419,33 @@ while (
       $(document).ready(function () {
 
         $('#down_photo').click(function () {
-          // Get the div element to capture
-          const captureDiv = document.getElementById('modal_rel');
+          // Create a temporary container div
+          const containerDiv = document.createElement('div');
+          containerDiv.classList.add('modal-container'); // You can style this class for presentation if needed
 
-          // Use html2canvas to capture the content as an image
-          html2canvas(captureDiv).then(function (canvas) {
+          // Clone the modal content and append it to the container
+          const modalContent = document.querySelector('#myModal .modal-content');
+          const clonedContent = modalContent.cloneNode(true);
+          containerDiv.appendChild(clonedContent);
+
+          // Append the container div to the body (to render off-screen)
+          document.body.appendChild(containerDiv);
+
+          // Use html2canvas to capture the content of the container div as an image
+          html2canvas(containerDiv).then(function (canvas) {
             // Create an anchor element to download the image
             const downloadLink = document.createElement('a');
             downloadLink.href = canvas.toDataURL('image/jpeg'); // or 'image/png' for PNG format
-            downloadLink.download = 'captured_image.jpg'; // or 'captured_image.png' for PNG format
+            downloadLink.download = 'captured_modal_image.jpg'; // or 'captured_image.png' for PNG format
 
             // Trigger a click event on the anchor element to download the image
             downloadLink.click();
+
+            // Remove the temporary container div
+            document.body.removeChild(containerDiv);
           });
         });
+
 
 
 
