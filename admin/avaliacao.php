@@ -446,7 +446,7 @@ while (
         // Toggle subtitles
         $('#esc_part').change(function () {
           $('#t_parts .card-subtitle').toggle();
-          $('#tabela-parts-status tr:not(.fw-bold)').toggle();
+          $('#tabela-parts-status .participante').toggle();
         });
 
         // Toggle icons
@@ -944,7 +944,11 @@ while (
                 // Check if tipo_participante is "participante1"
                 if (row.tipo_participante === "participante1") {
                   participanteClass = 'fw-bold'; // Apply bold font style
+                  participanteTipo = 'lider';
+                } else {
+                  participanteTipo = 'participante';
                 }
+
 
                 if (row.enviou_email !== null) {
                   const datac = moment(row.enviou_email).format("DD/MM/YYYY - HH:mm:ss");
@@ -971,7 +975,7 @@ while (
 
                 if (row.nome !== null) {
                   tabela_grupo.append(`
-                        <tr>
+                  <tr class="${participanteTipo}">
                         <td class="${participanteClass}">${row.nome}</td>
                             <!--<td>${row.email}</td>-->
                             <!--<td>${status} ${fezaval}</td>-->
