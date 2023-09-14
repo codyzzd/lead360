@@ -419,32 +419,34 @@ while (
       $(document).ready(function () {
 
         $('#down_photo').click(function () {
-          // Create a temporary container div
-          const containerDiv = document.createElement('div');
-          containerDiv.classList.add('modal-container'); // You can style this class for presentation if needed
+          // Select the modal content using jQuery
+          const $modalContent = $('#modal-rel .modal-content');
 
-          // Clone the modal content and append it to the container
-          const modalContent = document.querySelector('#modal-rel');
-          const clonedContent = modalContent.cloneNode(true);
-          containerDiv.appendChild(clonedContent);
+          // Clone the modal content
+          const $clonedContent = $modalContent.clone();
 
-          // Append the container div to the body (to render off-screen)
-          document.body.appendChild(containerDiv);
+          // Create a temporary div to hold the cloned content
+          const $tempDiv = $('<div>').append($clonedContent);
 
-          // Use html2canvas to capture the content of the container div as an image
-          html2canvas(containerDiv).then(function (canvas) {
+          // Append the temporary div to the body (to render off-screen)
+          $('body').append($tempDiv);
+
+          // Use html2canvas to capture the content of the temporary div as an image
+          html2canvas($tempDiv[0]).then(function (canvas) {
             // Create an anchor element to download the image
-            const downloadLink = document.createElement('a');
-            downloadLink.href = canvas.toDataURL('image/jpeg'); // or 'image/png' for PNG format
-            downloadLink.download = 'captured_modal_image.jpg'; // or 'captured_image.png' for PNG format
+            const $downloadLink = $('<a>', {
+              href: canvas.toDataURL('image/jpeg'), // or 'image/png' for PNG format
+              download: 'captured_modal_image.jpg' // or 'captured_image.png' for PNG format
+            });
 
             // Trigger a click event on the anchor element to download the image
-            downloadLink.click();
+            $downloadLink[0].click();
 
-            // Remove the temporary container div
-            document.body.removeChild(containerDiv);
+            // Remove the temporary div
+            $tempDiv.remove();
           });
         });
+
 
 
 
