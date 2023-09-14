@@ -420,19 +420,21 @@ while (
 
         $('#down_photo').click(function () {
           // Get the div element to capture
-          const captureDiv = document.getElementById('modal_rel');
+          const $captureDiv = $('#modal_rel .modal-content');
 
           // Use html2canvas to capture the content as an image
-          html2canvas(captureDiv).then(function (canvas) {
+          html2canvas($captureDiv[0]).then(function (canvas) {
             // Create an anchor element to download the image
-            const downloadLink = document.createElement('a');
-            downloadLink.href = canvas.toDataURL('image/jpeg'); // or 'image/png' for PNG format
-            downloadLink.download = 'captured_image.jpg'; // or 'captured_image.png' for PNG format
+            const $downloadLink = $('<a>', {
+              href: canvas.toDataURL('image/jpeg'), // or 'image/png' for PNG format
+              download: 'captured_image.jpg' // or 'captured_image.png' for PNG format
+            });
 
             // Trigger a click event on the anchor element to download the image
-            downloadLink.click();
+            $downloadLink[0].click();
           });
         });
+
 
 
 
