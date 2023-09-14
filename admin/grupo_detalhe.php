@@ -40,14 +40,16 @@ $dados_grupo = $q_grupo->fetch_assoc();
 
     <div class="container mt-3 mt-sm-5 mb-3">
       <div class="row">
-        <div class="col-md">
-          <h2 class="mb-3">
-            <? echo $dados_grupo['nome']; ?>
-          </h2>
-        </div>
-        <div class="col-md-auto text-md-end text-end d-grid gap-2 d-md-block">
-          <button class="btn btn-primary d-print-none"
-                  onclick="window.print()"> <span class="btn-label"><i class="fa fa-print me-2"></i></span>Imprimir</button>
+        <div class="col-12 col-lg-8">
+          <div class="col-md">
+            <h2 class="mb-3">
+              <? echo $dados_grupo['nome']; ?>
+            </h2>
+          </div>
+          <div class="col-md-auto text-md-end text-end d-grid gap-2 d-md-block">
+            <button class="btn btn-primary d-print-none"
+                    onclick="window.print()"> <span class="btn-label"><i class="fa fa-print me-2"></i></span>Imprimir</button>
+          </div>
         </div>
       </div>
     </div>
