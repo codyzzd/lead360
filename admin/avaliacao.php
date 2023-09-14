@@ -413,29 +413,17 @@ while (
     </div>
 
     <?php include '../include/_jscripts.php' ?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
 
     <script>
       $(document).ready(function () {
 
         $('#down_photo').click(function () {
           // Get the div element to capture
-          const captureDiv = $('#modal_rel')[0];
+          const captureDiv = document.getElementById('modal_rel');
 
-          // Create a new canvas element
-          const canvas = document.createElement('canvas');
-          canvas.width = captureDiv.offsetWidth;
-          canvas.height = captureDiv.offsetHeight;
-
-          // Get the 2D context of the canvas
-          const context = canvas.getContext('2d');
-
-          // Draw the content of the div onto the canvas
-          const svgContent = new XMLSerializer().serializeToString(captureDiv);
-          const img = new Image();
-          img.src = 'data:image/svg+xml;base64,' + btoa(svgContent);
-          img.onload = function () {
-            context.drawImage(img, 0, 0, captureDiv.offsetWidth, captureDiv.offsetHeight);
-
+          // Use html2canvas to capture the content as an image
+          html2canvas(captureDiv).then(function (canvas) {
             // Create an anchor element to download the image
             const downloadLink = document.createElement('a');
             downloadLink.href = canvas.toDataURL('image/jpeg'); // or 'image/png' for PNG format
@@ -443,9 +431,9 @@ while (
 
             // Trigger a click event on the anchor element to download the image
             downloadLink.click();
-          };
-          console.log('Button clicked!');
+          });
         });
+
 
 
 
