@@ -422,21 +422,21 @@ while (
           // Get the div element to capture
           const $captureDiv = $('#modal_rel .modal-content');
 
+          // Get the text content of the element with ID 't_lider'
+          const fileName = $('#t_lider').text();
+
           // Use html2canvas to capture the content as an image
           html2canvas($captureDiv[0]).then(function (canvas) {
             // Create an anchor element to download the image
             const $downloadLink = $('<a>', {
               href: canvas.toDataURL('image/jpeg'), // or 'image/png' for PNG format
-              download: 'captured_image.jpg' // or 'captured_image.png' for PNG format
+              download: fileName + '.jpg' // Set the filename dynamically
             });
 
             // Trigger a click event on the anchor element to download the image
             $downloadLink[0].click();
           });
         });
-
-
-
 
 
         new ClipboardJS(".avalurl", {
