@@ -346,12 +346,20 @@ while (
 
           <div class="modal-body">
             <div class="row">
-              <div class="col">
 
-                <button id="toggleSubtitle"
-                        class="btn btn-primary">Toggle Subtitles</button>
-                <button id="toggleIcons"
-                        class="btn btn-primary">Toggle Icons</button>
+              <div class="col-md-3">
+                <label class="form-check-label"
+                       for="toggleSubtitle">Toggle Subtitles</label>
+                <input type="checkbox"
+                       id="toggleSubtitle"
+                       class="form-check-input">
+              </div>
+              <div class="col-md-3">
+                <label class="form-check-label"
+                       for="toggleIcons">Toggle Icons</label>
+                <input type="checkbox"
+                       id="toggleIcons"
+                       class="form-check-input">
               </div>
 
             </div>
@@ -428,6 +436,16 @@ while (
 
     <script>
       $(document).ready(function () {
+
+        // Toggle subtitles
+        $('#toggleSubtitle').change(function () {
+          $('#t_parts .card_subtitle').toggle();
+        });
+
+        // Toggle icons
+        $('#toggleIcons').change(function () {
+          $('#tabela_rel i').toggle();
+        });
 
         $('#down_photo').click(function () {
           // Get the div element to capture
