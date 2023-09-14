@@ -94,6 +94,6 @@
 
 @media print {
   .resultados {
-    page-break-before: always;
+    page-break-inside: avoid;
   }
 }
