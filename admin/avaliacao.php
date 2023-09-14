@@ -345,7 +345,7 @@ while (
           </div>
 
           <div class="modal-body">
-            <div class="row mb-3">
+            <div class="row mb-3 action">
 
               <div class="col-auto">
                 <div class="form-check form-switch">
@@ -462,7 +462,9 @@ while (
 
           // Hide the modal-footer
           const $modalFooter = $('#modal_rel .modal-footer');
+          const $modalAction = $('#modal_rel .action');
           $modalFooter.hide();
+          $modalAction.hide();
 
           // Use html2canvas to capture the content as an image
           html2canvas($captureDiv[0]).then(function (canvas) {
@@ -477,6 +479,7 @@ while (
 
             // Show the modal-footer again
             $modalFooter.show();
+            $modalAction.show();
           });
         });
 
