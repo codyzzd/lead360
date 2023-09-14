@@ -938,6 +938,13 @@ while (
 
                 let status = '';
                 let fezaval = '';
+                let participanteClass = ''; // Class to apply for participante1
+
+                // Check if tipo_participante is "participante1"
+                if (row.tipo_participante === "participante1") {
+                  participanteClass = 'font-weight-bold'; // Apply bold font style
+                }
+
 
                 if (row.enviou_email !== null) {
                   const datac = moment(row.enviou_email).format("DD/MM/YYYY - HH:mm:ss");
@@ -965,7 +972,7 @@ while (
                 if (row.nome !== null) {
                   tabela_grupo.append(`
                         <tr>
-                            <td>${row.nome}</td>
+                        <td class="${participanteClass}">${row.nome}</td>
                             <!--<td>${row.email}</td>-->
                             <!--<td>${status} ${fezaval}</td>-->
                             <!--<td class="text-end">
