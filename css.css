@@ -72,7 +72,7 @@
 /* Extra Small Devices (phones, less than 576px) */
 @media (max-width: 575.98px) {
   #tabela-rel i {
-    font-size: 10px;
+    font-size: 10px !important;
   }
 }
 
