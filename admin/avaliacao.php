@@ -460,6 +460,10 @@ while (
           // Get the text content of the element with ID 't_lider'
           const fileName = $('#t_lider').text();
 
+          // Hide the modal-footer
+          const $modalFooter = $('#modal_rel .modal-footer');
+          $modalFooter.hide();
+
           // Use html2canvas to capture the content as an image
           html2canvas($captureDiv[0]).then(function (canvas) {
             // Create an anchor element to download the image
@@ -470,8 +474,12 @@ while (
 
             // Trigger a click event on the anchor element to download the image
             $downloadLink[0].click();
+
+            // Show the modal-footer again
+            $modalFooter.show();
           });
         });
+
 
 
         new ClipboardJS(".avalurl", {
