@@ -929,6 +929,8 @@ while (
             },
             dataType: "json",
             success: function (resultados) {
+              console.log(resultados);
+
               var tabela_grupo = $("#tabela-parts-status");
               tabela_grupo.empty(); // Limpar a tabela antes de preencher
 
