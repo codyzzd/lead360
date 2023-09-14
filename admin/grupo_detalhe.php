@@ -42,10 +42,13 @@ $dados_grupo = $q_grupo->fetch_assoc();
       <div class="row justify-content-center">
         <div class="col-12 col-lg-8">
           <div class="d-flex justify-content-between align-items-center mb-3">
-          <small>Lider</small>
-            <h2>
-              <?php echo $dados_grupo['nome']; ?>
-            </h2>
+            <div>
+              <small>Lider</small>
+              <h2>
+                <?php echo $dados_grupo['nome']; ?>
+              </h2>
+            </div>
+
             <div class="text-md-end text-end d-grid gap-2 d-md-block">
               <button class="btn btn-primary d-print-none"
                       onclick="window.print()">
