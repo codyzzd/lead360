@@ -419,35 +419,20 @@ while (
       $(document).ready(function () {
 
         $('#down_photo').click(function () {
-          // Select the modal content using jQuery
-          const $modalContent = $('#modal-rel .modal-content');
+          // Get the div element to capture
+          const captureDiv = document.getElementById('modal_rel');
 
-          // Clone the modal content
-          const $clonedContent = $modalContent.clone();
-
-          // Create a temporary div to hold the cloned content
-          const $tempDiv = $('<div>').append($clonedContent);
-
-          // Append the temporary div to the body (to render off-screen)
-          $('body').append($tempDiv);
-
-          // Use html2canvas to capture the content of the temporary div as an image
-          html2canvas($tempDiv[0]).then(function (canvas) {
+          // Use html2canvas to capture the content as an image
+          html2canvas(captureDiv).then(function (canvas) {
             // Create an anchor element to download the image
-            const $downloadLink = $('<a>', {
-              href: canvas.toDataURL('image/jpeg'), // or 'image/png' for PNG format
-              download: 'captured_modal_image.jpg' // or 'captured_image.png' for PNG format
-            });
+            const downloadLink = document.createElement('a');
+            downloadLink.href = canvas.toDataURL('image/jpeg'); // or 'image/png' for PNG format
+            downloadLink.download = 'captured_image.jpg'; // or 'captured_image.png' for PNG format
 
             // Trigger a click event on the anchor element to download the image
-            $downloadLink[0].click();
-
-            // Remove the temporary div
-            $tempDiv.remove();
+            downloadLink.click();
           });
         });
-
-
 
 
 
