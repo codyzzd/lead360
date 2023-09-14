@@ -935,14 +935,6 @@ while (
               tabela_grupo.empty(); // Limpar a tabela antes de preencher
 
               $.each(resultados, function (index, row) {
-
-                for (let i = 0; i < row.participantes.length; i++) {
-
-
-
-
-
-
                 if (row.nome !== null) {
                   tabela_grupo.append(`
                         <tr>
