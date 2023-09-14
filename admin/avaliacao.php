@@ -346,7 +346,7 @@ while (
 
           <div class="modal-body">
             <div class="row">
-              <div class="col-12 col-lg-3">
+              <div class="col-12 col-xl-4">
                 <div id="t_parts"
                      class="mb-5"></div>
                 <table class="table mb-5 d-none">
@@ -369,7 +369,7 @@ while (
                 </table>
               </div>
 
-              <div class="col-12 col-lg-9">
+              <div class="col-12 col-xl-8">
                 <table class="table table-hover">
                   <thead>
                     <tr>
