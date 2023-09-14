@@ -942,9 +942,8 @@ while (
 
                 // Check if tipo_participante is "participante1"
                 if (row.tipo_participante === "participante1") {
-                  participanteClass = 'font-weight-bold'; // Apply bold font style
+                  participanteClass = 'fw-bold'; // Apply bold font style
                 }
-
 
                 if (row.enviou_email !== null) {
                   const datac = moment(row.enviou_email).format("DD/MM/YYYY - HH:mm:ss");
