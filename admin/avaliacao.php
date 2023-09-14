@@ -372,20 +372,20 @@ while (
 
             <div class="row">
               <div class="col-12 col-xl-4">
-                <div id="t_parts"
-                     class="mb-5"></div>
+                <!--<div id="t_parts"
+                     class="mb-5"></div>-->
                 <table class="table mb-5">
                   <thead>
                     <tr>
                       <th scope="col"
-                          class="col-auto">Lider</th>
+                          class="col-auto">Participante</th>
                       <!--<th scope="col"
                           class="col-auto">Participante</th>-->
                       <th scope="col"
                           class="col-auto">Status</th>
 
                       <th scope="col"
-                          class="col-3 col-sm-2 text-end">Opções</th>
+                          class="col-sm-2 text-end">Opções</th>
                     </tr>
                   </thead>
                   <tbody id="tabela-parts-status">
