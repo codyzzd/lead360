@@ -39,7 +39,7 @@ $dados_grupo = $q_grupo->fetch_assoc();
     </nav>
 
     <div class="container mt-3 mt-sm-5 mb-3">
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-12 col-lg-8">
           <div class="col-md">
             <h2 class="mb-3">
