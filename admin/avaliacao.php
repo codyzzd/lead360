@@ -933,29 +933,22 @@ while (
 
               var tabela_grupo = $("#tabela-parts-status");
               tabela_grupo.empty(); // Limpar a tabela antes de preencher
-/*
-              if (resultados && Array.isArray(resultados)) { // Verifica se resultados existe e é uma matriz
-                $.each(resultados, function (index, row) {
-                  for (let i = 0; i < row.participantes.length; i++) {
-                    if (row.participantes[i].nome !== null) {
-                      tabela_grupo.append(`
-                    <tr>
-                    <td>${row.participantes[0].nome}</td>
-                    <td>${row.participantes[i].nome} <small class="text-body-secondary">(${row.participantes[i].email})</small></td>
-                    <td>${status} ${fezaval}</td>
-                    <td class="text-end">
-                    <button class="btn btn-light btn-sm avalurl" type="button" data-clipboard-text="https://LiderScan.com.br/teste.php?id_part=${row.participantes[i].id}&id_survey=<?php echo $survey_id; ?>&id_grupo=${row.id_grupo}"><span class="btn-label"><i class="fa fa-link me-2"></i></span>Link</button>
-                    <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal_excluir" data-participant-id="${row.participantes[i].id}"><span class="btn-label"><i class="fa fa-paper-plane me-2"></i></span>Enviar</button>
-                    </td>
-                    </tr>
-                `);
-                      console.log(row.participantes[0].nome);
-                    }
-                  }
-                });
-              } else {
-                console.error("resultados não é uma matriz válida.");
-              }*/
+
+              $.each(resultados, function (index, row) {
+                if (row.nome !== null) {
+                  tabela_grupo.append(`
+                        <tr>
+                            <td>${row.nome}</td>
+                            <td>${row.email}</td>
+                            <td>${status} ${fezaval}</td>
+                            <td class="text-end">
+                                <button class="btn btn-light btn-sm avalurl" type="button" data-clipboard-text="https://LiderScan.com.br/teste.php?id_part=${row.id_participante}&id_survey=<?php echo $survey_id; ?>&id_grupo=${row.id_grupo}"><span class="btn-label"><i class="fa fa-link me-2"></i></span>Link</button>
+                                <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal_excluir" data-participant-id="${row.id_participante}"><span class="btn-label"><i class="fa fa-paper-plane me-2"></i></span>Enviar</button>
+                            </td>
+                        </tr>
+                    `);
+                }
+              });
 
               var t_parts = $("#t_parts");
               t_parts.empty(); // Limpar a tabela antes de preencher
