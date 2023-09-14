@@ -379,8 +379,8 @@ while (
                     <tr>
                       <th scope="col"
                           class="col-auto">Lider</th>
-                      <th scope="col"
-                          class="col-auto">Participante</th>
+                      <!--<th scope="col"
+                          class="col-auto">Participante</th>-->
                       <th scope="col"
                           class="col-auto">Status</th>
 
@@ -939,7 +939,7 @@ while (
                   tabela_grupo.append(`
                         <tr>
                             <td>${row.nome}</td>
-                            <td>${row.email}</td>
+                            <!--<td>${row.email}</td>-->
                             <td>${status} ${fezaval}</td>
                             <td class="text-end">
                                 <button class="btn btn-light btn-sm avalurl" type="button" data-clipboard-text="https://LiderScan.com.br/teste.php?id_part=${row.id_participante}&id_survey=<?php echo $survey_id; ?>&id_grupo=${row.id_grupo}"><span class="btn-label"><i class="fa fa-link me-2"></i></span>Link</button>
@@ -949,21 +949,21 @@ while (
                     `);
                 }
               });
-
+              /*
               var t_parts = $("#t_parts");
               t_parts.empty(); // Limpar a tabela antes de preencher
 
               // Verifique se há pelo menos um resultado
               if (resultados.length > 0) {
-                // Coloque o primeiro "nome" em um elemento h5
-                t_parts.append(`<h5 class="card-title" id="t_lider">${resultados[0].nome}</h5>`);
+              // Coloque o primeiro "nome" em um elemento h5
+              t_parts.append(`<h5 class="card-title" id="t_lider">${resultados[0].nome}</h5>`);
 
-                // Crie um elemento p para cada um dos demais "nomes"
-                resultados.slice(1).forEach(function (row) {
-                  const nome = row.nome !== null ? row.nome : "Ausente";
-                  t_parts.append(`<p class="card-subtitle text-body-secondary">${nome}</p>`);
-                });
-              }
+              // Crie um elemento p para cada um dos demais "nomes"
+              resultados.slice(1).forEach(function (row) {
+              const nome = row.nome !== null ? row.nome : "Ausente";
+              t_parts.append(`<p class="card-subtitle text-body-secondary">${nome}</p>`);
+              });
+              }*/
             },
           });
 
