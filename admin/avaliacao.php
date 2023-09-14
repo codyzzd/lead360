@@ -935,8 +935,36 @@ while (
               tabela_grupo.empty(); // Limpar a tabela antes de preencher
 
               $.each(resultados, function (index, row) {
-                if (row.nome !== null) {
-                  tabela_grupo.append(`
+
+                for (let i = 0; i < row.participantes.length; i++) {
+
+                  if (row.participantes[i].enviou_email !== null) {
+                    datac = moment(row.participantes[i].enviou_email).format("DD/MM/YYYY - HH:mm:ss");
+                    status =
+                      '<span class="badge text-bg-success" title="' +
+                      datac +
+                      '">Email OK</span>';
+                  } else {
+                    status =
+                      '<span class="badge text-bg-warning">Email OFF</span>';
+                  }
+
+                  if (row.participantes[i].fez_teste !== null) {
+                    datac = moment(row.participantes[i].fez_teste).format("DD/MM/YYYY - HH:mm:ss");
+                    fezaval =
+                      '<span class="badge text-bg-success" title="' +
+                      datac +
+                      '">Teste OK</span>';
+                  } else {
+                    fezaval =
+                      '<span class="badge text-bg-warning">Teste OFF</span>';
+                  }
+
+
+
+
+                  if (row.nome !== null) {
+                    tabela_grupo.append(`
                         <tr>
                             <td>${row.nome}</td>
                             <!--<td>${row.email}</td>-->
@@ -947,8 +975,8 @@ while (
                             </td>
                         </tr>
                     `);
-                }
-              });
+                  }
+                });
               /*
               var t_parts = $("#t_parts");
               t_parts.empty(); // Limpar a tabela antes de preencher
