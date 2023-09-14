@@ -346,6 +346,17 @@ while (
 
           <div class="modal-body">
             <div class="row">
+              <div class="col">
+
+                <button id="toggleSubtitle"
+                        class="btn btn-primary">Toggle Subtitles</button>
+                <button id="toggleIcons"
+                        class="btn btn-primary">Toggle Icons</button>
+              </div>
+
+            </div>
+
+            <div class="row">
               <div class="col-12 col-xl-4">
                 <div id="t_parts"
                      class="mb-5"></div>
@@ -396,7 +407,7 @@ while (
             </button>
             <button class="btn btn-outline-primary"
                     id="down_photo"> <span class="btn-label"><i class="fa fa-download me-2"></i></span>
-              Baixar resultados
+              Baixar resumo
             </button>
             <a href="grupo_detalhe.php?id="
                target="_blank"
