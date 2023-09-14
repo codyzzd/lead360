@@ -834,8 +834,8 @@ while (
                 var newRow = $("<tr>");
                 newRow.append("<td>" + categoria + "</td>");
                 // Adicionar estrelas com base no nível
-                newRow.append("<td  class='" + nivelLiderClass + " text-end'><span class='me-2'>" + getStarString(nivel_lider) + "<br class='empurra d-md-none'></span>" + participante1 + " </td>");
-                newRow.append("<td  class='" + nivelOutrosClass + " text-end'> <span class='me-2'>" + getStarString(nivel_outros) + "</span><br class='empurra d-md-none'>" + outros_participantes + "</td>");
+                newRow.append("<td  class='" + nivelLiderClass + " text-end'><span class='me-2'>" + getStarString(nivel_lider) + "<br class='empurra d-sm-none'></span>" + participante1 + " </td>");
+                newRow.append("<td  class='" + nivelOutrosClass + " text-end'> <span class='me-2'>" + getStarString(nivel_outros) + "</span><br class='empurra d-sm-none'>" + outros_participantes + "</td>");
 
                 //newRow.append("<td class='" + nivelLiderClass + "'>" + participante1 + "</td>");
                 //newRow.append("<td class='" + nivelOutrosClass + "'>" + outros_participantes + "</td>");
