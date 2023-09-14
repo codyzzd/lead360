@@ -936,8 +936,11 @@ while (
 
               $.each(resultados, function (index, row) {
 
+                let status = '';
+                let fezaval = '';
+
                 if (row.participantes[i].enviou_email !== null) {
-                  datac = moment(row.participantes[i].enviou_email).format("DD/MM/YYYY - HH:mm:ss");
+                  const datac = moment(row.participantes[i].enviou_email).format("DD/MM/YYYY - HH:mm:ss");
                   status =
                     '<span class="badge text-bg-success" title="' +
                     datac +
@@ -948,7 +951,7 @@ while (
                 }
 
                 if (row.participantes[i].fez_teste !== null) {
-                  datac = moment(row.participantes[i].fez_teste).format("DD/MM/YYYY - HH:mm:ss");
+                  const datac = moment(row.participantes[i].fez_teste).format("DD/MM/YYYY - HH:mm:ss");
                   fezaval =
                     '<span class="badge text-bg-success" title="' +
                     datac +
