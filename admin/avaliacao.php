@@ -933,7 +933,7 @@ while (
 
               var tabela_grupo = $("#tabela-parts-status");
               tabela_grupo.empty(); // Limpar a tabela antes de preencher
-
+/*
               if (resultados && Array.isArray(resultados)) { // Verifica se resultados existe e é uma matriz
                 $.each(resultados, function (index, row) {
                   for (let i = 0; i < row.participantes.length; i++) {
@@ -955,7 +955,7 @@ while (
                 });
               } else {
                 console.error("resultados não é uma matriz válida.");
-              }
+              }*/
 
               var t_parts = $("#t_parts");
               t_parts.empty(); // Limpar a tabela antes de preencher
