@@ -433,7 +433,7 @@ while (
 
         // Toggle subtitles
         $('#esc_part').change(function () {
-          $('#t_parts .card_subtitle').toggle();
+          $('#t_parts .card-subtitle').toggle();
         });
 
         // Toggle icons
