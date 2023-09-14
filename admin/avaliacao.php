@@ -395,7 +395,7 @@ while (
               Fechar
             </button>
             <button class="btn btn-outline-primary"
-                    id="down_photo">
+                    id="down_photo"> <span class="btn-label"><i class="fa fa-download me-2"></i></span>
               Baixar resultados
             </button>
             <a href="grupo_detalhe.php?id="
