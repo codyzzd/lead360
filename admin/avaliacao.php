@@ -347,22 +347,25 @@ while (
           <div class="modal-body">
             <div class="row">
 
-              <div class="form-check form-switch">
-                <input class="form-check-input"
-                       type="checkbox"
-                       role="switch"
-                       id="esc_part">
-                <label class="form-check-label"
-                       for="esc_part">Esconder participantes</label>
+              <div class="col-auto">
+                <div class="form-check form-switch">
+                  <input class="form-check-input"
+                         type="checkbox"
+                         role="switch"
+                         id="esc_part">
+                  <label class="form-check-label"
+                         for="esc_part">Esconder participantes</label>
+                </div>
               </div>
-
-              <div class="form-check form-switch">
-                <input class="form-check-input"
-                       type="checkbox"
-                       role="switch"
-                       id="show_star">
-                <label class="form-check-label"
-                       for="show_star">Mostra estrelas</label>
+              <div class="col-auto">
+                <div class="form-check form-switch">
+                  <input class="form-check-input"
+                         type="checkbox"
+                         role="switch"
+                         id="show_star">
+                  <label class="form-check-label"
+                         for="show_star">Mostra estrelas</label>
+                </div>
               </div>
 
             </div>
