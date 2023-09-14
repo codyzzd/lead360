@@ -330,7 +330,7 @@ while (
     </div>
 
     <!-- modal resultado -->
-    <div class="modal fade modal-lg"
+    <div class="modal fade modal-xl"
          tabindex="-1"
          id="modal_rel">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
