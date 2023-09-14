@@ -424,7 +424,7 @@ while (
           containerDiv.classList.add('modal-container'); // You can style this class for presentation if needed
 
           // Clone the modal content and append it to the container
-          const modalContent = document.querySelector('#myModal .modal-content');
+          const modalContent = document.querySelector('#modal-rel');
           const clonedContent = modalContent.cloneNode(true);
           containerDiv.appendChild(clonedContent);
 
