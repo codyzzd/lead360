@@ -42,11 +42,13 @@ $dados_grupo = $q_grupo->fetch_assoc();
       <div class="row justify-content-center">
         <div class="col-12 col-lg-8">
 
+          <button class="btn btn-primary d-print-none"
+                  onclick="window.print()"> <span class="btn-label"><i class="fa fa-print me-2"></i></span>Imprimir</button>
+
           <h2 class="mb-3">
             <? echo $dados_grupo['nome']; ?>
           </h2>
-          <button class="btn btn-primary"
-                  onclick="window.print()"> <span class="btn-label"><i class="fa fa-print me-2"></i></span>Imprimir</button>
+
           <?
           // Inicialize um array para armazenar as informações de cada pergunta
           $info_perguntas = [];
