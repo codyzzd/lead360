@@ -381,11 +381,11 @@ while (
                           class="col-auto">Participante</th>
                       <!--<th scope="col"
                           class="col-auto">Participante</th>-->
-                      <th scope="col"
-                          class="col-auto">Status</th>
+                      <!--<th scope="col"
+                          class="col-auto">Status</th>-->
 
-                      <th scope="col"
-                          class="col-sm-2 text-end">Opções</th>
+                      <!--<th scope="col"
+                          class="col-sm-2 text-end">Opções</th>-->
                     </tr>
                   </thead>
                   <tbody id="tabela-parts-status">
@@ -967,11 +967,11 @@ while (
                         <tr>
                             <td>${row.nome}</td>
                             <!--<td>${row.email}</td>-->
-                            <td>${status} ${fezaval}</td>
-                            <td class="text-end">
+                            <!--<td>${status} ${fezaval}</td>-->
+                            <!--<td class="text-end">
                                 <button class="btn btn-light btn-sm avalurl" type="button" data-clipboard-text="https://LiderScan.com.br/teste.php?id_part=${row.id_participante}&id_survey=<?php echo $survey_id; ?>&id_grupo=${row.id_grupo}"><span class="btn-label"><i class="fa fa-link me-2"></i></span>Link</button>
                                 <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#modal_excluir" data-participant-id="${row.id_participante}"><span class="btn-label"><i class="fa fa-paper-plane me-2"></i></span>Enviar</button>
-                            </td>
+                            </td>-->
                         </tr>
                     `);
                 }
