@@ -935,8 +935,6 @@ while (
               tabela_grupo.empty(); // Limpar a tabela antes de preencher
 
               $.each(resultados, function (index, row) {
-                //console.log(row);
-
                 for (let i = 0; i < row.participantes.length; i++) {
                   if (row.participantes[i].nome !== null) {
                     tabela_grupo.append(`
@@ -950,7 +948,7 @@ while (
                       </td>
                       </tr>
                       `);
-                    console.log(row.participantes[0].nome);
+                    //console.log(row.participantes[0].nome);
                   }
                 }
               });
