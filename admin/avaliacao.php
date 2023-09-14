@@ -459,7 +459,8 @@ while (
           const $captureDiv = $('#modal_rel .modal-content');
 
           // Get the text content of the element with ID 't_lider'
-          const fileName = $('#t_lider').text();
+          //const fileName = $('#t_lider').text();
+          const fileName = $('.fw-bold').text();
 
           // Hide the modal-footer
           const $modalFooter = $('#modal_rel .modal-footer');
