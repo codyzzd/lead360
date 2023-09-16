@@ -20,6 +20,10 @@
         background-repeat: no-repeat;
         background-position: center center;
       }
+
+      .logo {
+        width: 224px;
+      }
     </style>
     <? include '../include/_toasters.php' ?>
 
@@ -30,15 +34,8 @@
         <div class="col-xl-8 col-lg-7 col-md-5 col-sm-7 splash p-5 vh-100">
           <img src="/i/logo_liderscan.png"
                alt="LiderScan"
-               class="mb-5">
-          <figure class="p-5 bg-dark bg">
-            <blockquote class="blockquote">
-              <p>”O melhor investimento que uma empresa pode fazer é na capacitação e desenvolvimento de seus líderes, pois são eles que moldam o futuro da organização.”</p>
-            </blockquote>
-            <figcaption class="blockquote-footer">
-              Diana Moreira <!--<cite title="Source Title">Source Title</cite>-->
-            </figcaption>
-          </figure>
+               class="mb-5 logo">
+          <h1 class="display-3">Bem-vindo! Potencialize sua liderança conosco.</h1>
 
         </div>
 
