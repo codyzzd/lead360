@@ -25,6 +25,21 @@
 
     <div class="container-fluid">
       <div class="row">
+
+        <!-- Coluna para a cor roxa -->
+        <div class="col-xl-8 col-lg-7 col-md-5 col-sm-7 splash p-5 vh-100">
+
+          <figure class="bg-opacity-10 bg-dark">
+            <blockquote class="blockquote">
+              <p>”O melhor investimento que uma empresa pode fazer é na capacitação e desenvolvimento de seus líderes, pois são eles que moldam o futuro da organização.”</p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+              Diana Moreira <!--<cite title="Source Title">Source Title</cite>-->
+            </figcaption>
+          </figure>
+
+        </div>
+
         <!-- Coluna para o login -->
         <div class="col-xl-4 col-lg-5 col-md-7 col-sm-5 p-5">
           <div class="mb-3">
@@ -59,19 +74,6 @@
           </div>
         </div>
 
-        <!-- Coluna para a cor roxa -->
-        <div class="col-xl-8 col-lg-7 col-md-5 col-sm-7 splash p-5 vh-100">
-
-          <figure class="bg-opacity-10 bg-dark">
-            <blockquote class="blockquote">
-              <p>”O melhor investimento que uma empresa pode fazer é na capacitação e desenvolvimento de seus líderes, pois são eles que moldam o futuro da organização.”</p>
-            </blockquote>
-            <figcaption class="blockquote-footer">
-              Diana Moreira <!--<cite title="Source Title">Source Title</cite>-->
-            </figcaption>
-          </figure>
-
-        </div>
       </div>
     </div>
 
