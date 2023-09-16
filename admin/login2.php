@@ -26,7 +26,7 @@
     <div class="container-fluid">
       <div class="row">
         <!-- Coluna para o login -->
-        <div class="col-lg-3 col-md-4 col-sm-5 p-5">
+        <div class="col-lg-4 col-md-6 col-sm-5 p-5">
           <div class="mb-3">
             <h2>Fazer Login</h2>
             <form id="loginForm">
