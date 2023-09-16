@@ -11,16 +11,58 @@
   </head>
 
   <body>
+    <style>
+      /* Estilo para a cor roxa no restante da tela */
+      .splash {
+        background-color: #6929F3;
+        /*background-image: url('/i/back_login.jpg');*/
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 100vh !important;
+      }
+
+      .logo {
+        width: 224px;
+      }
+
+      @media (max-width: 844px) {
+
+        /*.splash {
+          height: auto;
+        }*/
+        h1.display-3 {
+          font-size: 1.8rem;
+        }
+      }
+
+      @media (max-width: 390px) {
+        .splash {
+          height: auto;
+        }
+
+        h1.display-3 {
+          font-size: 2rem;
+        }
+      }
+    </style>
     <? include '../include/_toasters.php' ?>
-    <? include '../include/_navoff.php' ?>
 
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-lg-4">
+    <div class="container-fluid">
+      <div class="row row flex-column flex-md-row">
+
+        <!-- Coluna para a cor roxa -->
+        <div class="col-xl-8 col-lg-7 col-md-5 col-sm-7 splash p-5">
+          <img src="/i/logo_liderscan.png"
+               alt="LiderScan"
+               class="mb-3 logo">
+          <h1 class="display-3 text-white">Potencialize sua liderança com avaliações acessíveis para resultados impactantes!</h1>
+        </div>
+
+        <!-- Coluna para o login -->
+        <div class="col-xl-4 col-lg-5 col-md-7 col-sm-5 p-5">
           <div class="mb-3">
-            <div id="resultado"></div> <!-- Aqui será exibida a mensagem de sucesso/erro -->
-            <h2>Fazer Login</h2>
-
+            <h2>Login</h2>
             <form id="loginForm">
               <div class="mb-3">
                 <label for="email"
@@ -44,12 +86,13 @@
                       class="btn btn-primary">Entrar</button>
             </form>
           </div>
-          <!-- <hr>
+          <hr>
           <div>
             <p>Não tem conta? <a href="criar_conta.php"
                  class="">Criar conta</a></p>
-          </div>-->
+          </div>
         </div>
+
       </div>
     </div>
 
