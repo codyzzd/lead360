@@ -26,7 +26,7 @@
     <div class="container-fluid">
       <div class="row">
         <!-- Coluna para o login -->
-        <div class="col-lg-4 col-md-6 col-sm-5 p-5">
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-5 p-5">
           <div class="mb-3">
             <h2>Fazer Login</h2>
             <form id="loginForm">
@@ -60,7 +60,7 @@
         </div>
 
         <!-- Coluna para a cor roxa -->
-        <div class="col-lg-8 col-md-7 col-sm-6 purple-bg">
+        <div class="col-xl-8 col-lg-8 col-md-6 col-sm-7 purple-bg">
           <!-- Conteúdo roxo -->
         </div>
       </div>
