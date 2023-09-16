@@ -73,7 +73,7 @@
                        name="email"
                        required>
               </div>
-              <div class="mb-3">
+              <div class="mb-1">
                 <label for="senha"
                        class="form-label">Senha</label>
                 <input type="password"
@@ -82,8 +82,7 @@
                        name="senha"
                        required>
               </div>
-              <a href="esqueci_senha.php"
-                 class="mb-3 text-end">Esqueci a senha</a>
+              <p class="mb-3 text-end"><a href="esqueci_senha.php">Esqueci a senha</a></p>
 
               <div class="d-grid gap-2">
                 <button type="submit"
@@ -92,7 +91,6 @@
 
             </form>
           </div>
-          <hr>
           <div>
             <!--<p>Não tem conta? <a href="criar_conta.php"
                  class="">Criar conta</a></p>-->
