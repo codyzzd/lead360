@@ -35,14 +35,14 @@
           <img src="/i/logo_liderscan.png"
                alt="LiderScan"
                class="mb-5 logo">
-          <h1 class="display-3">Bem-vindo! Potencialize sua liderança conosco.</h1>
+          <h1 class="display-3 text-white">Potencialize sua liderança com avaliações acessíveis para resultados impactantes!</h1>
 
         </div>
 
         <!-- Coluna para o login -->
         <div class="col-xl-4 col-lg-5 col-md-7 col-sm-5 p-5">
           <div class="mb-3">
-            <h2>Fazer Login</h2>
+            <h2>Login</h2>
             <form id="loginForm">
               <div class="mb-3">
                 <label for="email"
