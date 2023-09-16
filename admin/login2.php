@@ -12,15 +12,13 @@
 
   <body>
     <? include '../include/_toasters.php' ?>
-    <? include '../include/_navoff.php' ?>
 
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-lg-4">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Coluna para o login -->
+        <div class="col-lg-4 col-md-5 col-sm-6">
           <div class="mb-3">
-            <div id="resultado"></div> <!-- Aqui será exibida a mensagem de sucesso/erro -->
             <h2>Fazer Login</h2>
-
             <form id="loginForm">
               <div class="mb-3">
                 <label for="email"
@@ -44,11 +42,16 @@
                       class="btn btn-primary">Entrar</button>
             </form>
           </div>
-          <!-- <hr>
+          <hr>
           <div>
             <p>Não tem conta? <a href="criar_conta.php"
                  class="">Criar conta</a></p>
-          </div>-->
+          </div>
+        </div>
+
+        <!-- Coluna para a cor roxa -->
+        <div class="col-lg-8 col-md-7 col-sm-6 purple-bg">
+          <!-- Conteúdo roxo -->
         </div>
       </div>
     </div>
