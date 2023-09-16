@@ -28,7 +28,7 @@
     <? include '../include/_toasters.php' ?>
 
     <div class="container-fluid">
-      <div class="row">
+      <div class="row row flex-column flex-md-row">
 
         <!-- Coluna para a cor roxa -->
         <div class="col-xl-8 col-lg-7 col-md-5 col-sm-7 splash p-5 vh-100">
