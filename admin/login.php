@@ -82,6 +82,8 @@
                        name="senha"
                        required>
               </div>
+              <a href="esqueci_senha.php"
+                 class="mb-3 text-end">Esqueci a senha</a>
 
               <div class="d-grid gap-2">
                 <button type="submit"
@@ -94,8 +96,7 @@
           <div>
             <!--<p>Não tem conta? <a href="criar_conta.php"
                  class="">Criar conta</a></p>-->
-            <p><a href="esqueci_senha.php"
-                 class="">Esqueci a senha</a></p>
+            <p></p>
           </div>
         </div>
 
