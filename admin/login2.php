@@ -29,7 +29,10 @@
       @media (max-width: 767px) {
         .splash {
           height: auto;
-          /* Altera para altura automática em telas menores */
+
+          h1.display-3 {
+            font-size: 2rem;
+          }
         }
       }
     </style>
@@ -43,7 +46,7 @@
           <img src="/i/logo_liderscan.png"
                alt="LiderScan"
                class="mb-3 logo">
-          <h1 class="display-3 display-md-6 text-white">Potencialize sua liderança com avaliações acessíveis para resultados impactantes!</h1>
+          <h1 class="display-3 text-white">Potencialize sua liderança com avaliações acessíveis para resultados impactantes!</h1>
 
         </div>
 
