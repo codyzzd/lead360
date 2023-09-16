@@ -13,8 +13,12 @@
   <body>
     <style>
       /* Estilo para a cor roxa no restante da tela */
-      .purple-bg {
+      .splash {
         background-color: purple;
+        background-image: url('/i/back_login.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
       }
     </style>
     <? include '../include/_toasters.php' ?>
@@ -56,7 +60,7 @@
         </div>
 
         <!-- Coluna para a cor roxa -->
-        <div class="col-xl-10 col-lg-8 col-md-6 col-sm-7 purple-bg p-5 vh-100">
+        <div class="col-xl-10 col-lg-8 col-md-6 col-sm-7 splash p-5 vh-100">
           <figure>
             <blockquote class="blockquote">
               <p>”O melhor investimento que uma empresa pode fazer é na capacitação e desenvolvimento de seus líderes, pois são eles que moldam o futuro da organização.”</p>
