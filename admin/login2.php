@@ -42,8 +42,8 @@
         <div class="col-xl-8 col-lg-7 col-md-5 col-sm-7 splash p-5">
           <img src="/i/logo_liderscan.png"
                alt="LiderScan"
-               class="mb-5 logo">
-          <h1 class="display-3 text-white">Potencialize sua liderança com avaliações acessíveis para resultados impactantes!</h1>
+               class="mb-3 logo">
+          <h1 class="display-3 display-md-6 text-white">Potencialize sua liderança com avaliações acessíveis para resultados impactantes!</h1>
 
         </div>
 
