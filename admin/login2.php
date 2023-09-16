@@ -19,11 +19,18 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
+        height: 100%;
       }
 
       .logo {
         width: 224px;
       }
+
+      @media (max-width: 767px) {
+        .splash {
+          height: auto;
+          /* Altera para altura automática em telas menores */
+        }
     </style>
     <? include '../include/_toasters.php' ?>
 
