@@ -12,6 +12,8 @@
 <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>-->
 <!-- clipboard -->
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+<!-- popper -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 
 <script>
   function criarToast(titulo, mensagem, duracaoPersonalizada) {
