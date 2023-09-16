@@ -31,6 +31,7 @@
           height: auto;
           /* Altera para altura automática em telas menores */
         }
+      }
     </style>
     <? include '../include/_toasters.php' ?>
 
@@ -38,7 +39,7 @@
       <div class="row row flex-column flex-md-row">
 
         <!-- Coluna para a cor roxa -->
-        <div class="col-xl-8 col-lg-7 col-md-5 col-sm-7 splash p-5 vh-100">
+        <div class="col-xl-8 col-lg-7 col-md-5 col-sm-7 splash p-5">
           <img src="/i/logo_liderscan.png"
                alt="LiderScan"
                class="mb-5 logo">
