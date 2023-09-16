@@ -16,19 +16,19 @@
 <!-- Favicon para navegadores modernos -->
 <link rel="icon"
       type="image/png"
-      href="/favicon.png"
+      href="/i/favicon.png"
       sizes="32x32">
 <link rel="icon"
       type="image/png"
-      href="/favicon.png"
+      href="/i/favicon.png"
       sizes="16x16">
 
 <!-- Favicon para dispositivos Apple -->
 <link rel="apple-touch-icon"
       sizes="180x180"
-      href="/favicon.png">
+      href="/i/favicon.png">
 
 <!-- Favicon genérico -->
 <!--<link rel="shortcut icon"
-      href="/favicon.ico"
+      href="/i/favicon.ico"
       type="image/x-icon">-->

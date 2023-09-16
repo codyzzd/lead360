@@ -4,7 +4,7 @@
   <div class="container-fluid">
     <a class="navbar-brand"
        href="#">
-      <img src="/logonav.png"
+      <img src="/i/logonav.png"
            alt="Logo"
            height="24"
            class="d-inline-block align-text-top me-2">LiderScan
