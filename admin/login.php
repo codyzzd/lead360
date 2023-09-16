@@ -61,8 +61,8 @@
 
         <!-- Coluna para o login -->
         <div class="col-xl-4 col-lg-5 col-md-7 col-sm-5 p-5">
-          <div class="mb-3">
-            <h2 class="mb-5">Login</h2>
+         
+            <h2 class="mb-3">Login</h2>
 
             <form id="loginForm">
               <div class="mb-3">
@@ -91,7 +91,7 @@
               </div>
 
             </form>
-          </div>
+
           <div>
             <!--<p>Não tem conta? <a href="criar_conta.php"
                  class="">Criar conta</a></p>-->
