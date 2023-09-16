@@ -57,7 +57,15 @@
 
         <!-- Coluna para a cor roxa -->
         <div class="col-xl-10 col-lg-8 col-md-6 col-sm-7 purple-bg p-5 vh-100">
-          <!-- Conteúdo roxo -->
+          <figure>
+            <blockquote class="blockquote">
+              <p>”O melhor investimento que uma empresa pode fazer é na capacitação e desenvolvimento de seus líderes, pois são eles que moldam o futuro da organização.”</p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+              Diana Moreira <!--<cite title="Source Title">Source Title</cite>-->
+            </figcaption>
+          </figure>
+
         </div>
       </div>
     </div>
