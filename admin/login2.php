@@ -28,8 +28,10 @@
 
         <!-- Coluna para a cor roxa -->
         <div class="col-xl-8 col-lg-7 col-md-5 col-sm-7 splash p-5 vh-100">
-
-          <figure>
+          <img src="/i/logo_liderscan.png"
+               alt="LiderScan"
+               class="mb-5">
+          <figure class="p-5 bg-dark bg">
             <blockquote class="blockquote">
               <p>”O melhor investimento que uma empresa pode fazer é na capacitação e desenvolvimento de seus líderes, pois são eles que moldam o futuro da organização.”</p>
             </blockquote>
