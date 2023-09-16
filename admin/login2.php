@@ -26,11 +26,21 @@
         width: 224px;
       }
 
-      @media (max-width: 768px) {
+      @media (max-width: 844px) {
 
         /*.splash {
           height: auto;
         }*/
+        h1.display-3 {
+          font-size: 1.8rem;
+        }
+      }
+
+      @media (max-width: 390px) {
+        .splash {
+          height: auto;
+        }
+
         h1.display-3 {
           font-size: 2rem;
         }
@@ -47,7 +57,6 @@
                alt="LiderScan"
                class="mb-3 logo">
           <h1 class="display-3 text-white">Potencialize sua liderança com avaliações acessíveis para resultados impactantes!</h1>
-
         </div>
 
         <!-- Coluna para o login -->
