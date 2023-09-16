@@ -14,8 +14,8 @@
     <style>
       /* Estilo para a cor roxa no restante da tela */
       .splash {
-        background-color: purple;
-        background-image: url('/i/back_login.jpg');
+        background-color: #6929F3;
+        /*background-image: url('/i/back_login.jpg');*/
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
@@ -29,7 +29,7 @@
         <!-- Coluna para a cor roxa -->
         <div class="col-xl-8 col-lg-7 col-md-5 col-sm-7 splash p-5 vh-100">
 
-          <figure class="bg-opacity-10 bg-dark">
+          <figure>
             <blockquote class="blockquote">
               <p>”O melhor investimento que uma empresa pode fazer é na capacitação e desenvolvimento de seus líderes, pois são eles que moldam o futuro da organização.”</p>
             </blockquote>
