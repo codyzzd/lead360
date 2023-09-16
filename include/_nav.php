@@ -30,29 +30,29 @@
              href="index.php">Avaliações</a></li>
         <li class="nav-item"> <a class="nav-link"
              href="participantes.php">Participantes</a></li>
-        <li class="nav-item"> <a class="nav-link"
-             href="../include/_a_logoff.php">Sair</a></li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle"
-             href="#"
-             role="button"
-             data-bs-toggle="dropdown"
-             aria-expanded="false">
-            Conta
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item"
-                 href="#">Ajustes</a></li>
-            <li><a class="dropdown-item"
-                 href="#">Sair</a></li>
-            <li>
-              <!--<hr class="dropdown-divider">-->
+        <div class="d-flex">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"
+               href="#"
+               role="button"
+               data-bs-toggle="dropdown"
+               aria-expanded="false">
+              Conta
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item"
+                   href="#">Ajustes</a></li>
+              <li><a class="dropdown-item"
+                   href="../include/_a_logoff.php">Sair</a></li>
+              <!-- <li>
+              <hr class="dropdown-divider">
             </li>
             <li><a class="dropdown-item"
-                 href="#">Something else here</a></li>
-          </ul>
-        </li>
+                 href="#">Something else here</a></li>-->
+            </ul>
+          </li>
+        </div>
 
       </div>
 
