@@ -15,10 +15,6 @@
       /* Estilo para a cor roxa no restante da tela */
       .purple-bg {
         background-color: purple;
-        height: 100vh;
-        /* 100% da altura da viewport */
-        padding: 20px;
-        /* Espaçamento interno */
       }
     </style>
     <? include '../include/_toasters.php' ?>
@@ -26,7 +22,7 @@
     <div class="container-fluid">
       <div class="row">
         <!-- Coluna para o login -->
-        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-5 p-5">
+        <div class="col-xl-2 col-lg-4 col-md-6 col-sm-5 p-5">
           <div class="mb-3">
             <h2>Fazer Login</h2>
             <form id="loginForm">
@@ -60,7 +56,7 @@
         </div>
 
         <!-- Coluna para a cor roxa -->
-        <div class="col-xl-8 col-lg-8 col-md-6 col-sm-7 purple-bg">
+        <div class="col-xl-10 col-lg-8 col-md-6 col-sm-7 purple-bg p-5 vh-100">
           <!-- Conteúdo roxo -->
         </div>
       </div>
