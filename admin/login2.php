@@ -11,6 +11,16 @@
   </head>
 
   <body>
+    <style>
+      /* Estilo para a cor roxa no restante da tela */
+      .purple-bg {
+        background-color: purple;
+        height: 100vh;
+        /* 100% da altura da viewport */
+        padding: 20px;
+        /* Espaçamento interno */
+      }
+    </style>
     <? include '../include/_toasters.php' ?>
 
     <div class="container-fluid">
