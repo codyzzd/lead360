@@ -82,14 +82,20 @@
                        name="senha"
                        required>
               </div>
-              <button type="submit"
-                      class="btn btn-primary">Entrar</button>
+
+              <div class="d-grid gap-2">
+                <button type="submit"
+                        class="btn btn-primary">Entrar</button>
+              </div>
+
             </form>
           </div>
           <hr>
           <div>
-            <p>Não tem conta? <a href="criar_conta.php"
-                 class="">Criar conta</a></p>
+            <!--<p>Não tem conta? <a href="criar_conta.php"
+                 class="">Criar conta</a></p>-->
+            <p><a href="esqueci_senha.php"
+                 class="">Esqueci a senha</a></p>
           </div>
         </div>
 
