@@ -62,7 +62,8 @@
         <!-- Coluna para o login -->
         <div class="col-xl-4 col-lg-5 col-md-7 col-sm-5 p-5">
           <div class="mb-3">
-            <h2>Login</h2>
+            <h2 class="mb-5">Login</h2>
+
             <form id="loginForm">
               <div class="mb-3">
                 <label for="email"
