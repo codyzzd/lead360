@@ -26,7 +26,7 @@
     <div class="container-fluid">
       <div class="row">
         <!-- Coluna para o login -->
-        <div class="col-xl-2 col-lg-4 col-md-6 col-sm-5 p-5">
+        <div class="col-xl-2 col-lg-5 col-md-6 col-sm-5 p-5">
           <div class="mb-3">
             <h2>Fazer Login</h2>
             <form id="loginForm">
@@ -60,7 +60,7 @@
         </div>
 
         <!-- Coluna para a cor roxa -->
-        <div class="col-xl-10 col-lg-8 col-md-6 col-sm-7 splash p-5 vh-100">
+        <div class="col-xl-10 col-lg-7 col-md-6 col-sm-7 splash p-5 vh-100">
           <figure>
             <blockquote class="blockquote">
               <p>”O melhor investimento que uma empresa pode fazer é na capacitação e desenvolvimento de seus líderes, pois são eles que moldam o futuro da organização.”</p>
