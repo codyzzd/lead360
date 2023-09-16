@@ -26,13 +26,13 @@
         width: 224px;
       }
 
-      @media (max-width: 767px) {
+      @media (max-width: 768px) {
         .splash {
           height: auto;
+        }
 
-          h1.display-3 {
-            font-size: 2rem;
-          }
+        h1.display-3 {
+          font-size: 2rem;
         }
       }
     </style>
