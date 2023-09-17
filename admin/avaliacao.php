@@ -437,6 +437,55 @@ while (
       </div>
     </div>
 
+     <!-- modal criar CSV -->
+     <div class="modal fade"
+         tabindex="-1"
+         id="modal_link_csv">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Criar grupos por CSV</h5>
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                    id="modal_new_close_csv"></button>
+          </div>
+          <form id="form_new_csv">
+            <div class="modal-body">
+              <div id="csv_result"
+                   class="mb-3"></div>
+              <div class="mb-3">
+
+                <label for="formFile"
+                       class="form-label">Arquivo CSV</label>
+                <input class="form-control"
+                       type="file"
+                       id="formFile"
+                       accept=".csv">
+              </div>
+              <div class="progress"
+                   role="progressbar"
+                   aria-label="Basic example"
+                   aria-valuenow="0"
+                   aria-valuemin="0"
+                   aria-valuemax="100">
+                <div class="progress-bar"
+                     style="width: 0%"></div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button"
+                      class="btn btn-outline-secondary"
+                      data-bs-dismiss="modal">Fechar</button>
+              <button type="submit"
+                      class="btn btn-primary">Adicionar CSV</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
     <?php include '../include/_jscripts.php' ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
 
