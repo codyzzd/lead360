@@ -85,16 +85,19 @@
 h1.display-3 {
   font-size: 1.8rem !important;
 }
+#tabela-rel i {
+  font-size: 8px;
+}
 
 /* ------------------ Small Devices (phones, 576px and up) ------------------ */
 @media (min-width: 576px) {
-  #tabela-rel i {
-    font-size: 8px;
-  }
 }
 
 /* ----------------- Medium Devices (tablets, 768px and up) ----------------- */
 @media (min-width: 768px) {
+  #tabela-rel i {
+    font-size: inherit;
+  }
 }
 
 /* ----------------- Large Devices (desktops, 992px and up) ----------------- */
@@ -104,12 +107,13 @@ h1.display-3 {
   }
 }
 
- /* ----------- Extra Large Devices (large desktops, 1200px and up) ---------- */
+/* ----------- Extra Large Devices (large desktops, 1200px and up) ---------- */
 @media (min-width: 1200px) {
 }
 
-
-/* ----------------------------- modo impressao ----------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                               modo impressao                               */
+/* -------------------------------------------------------------------------- */
 @media print {
   .resultados {
     page-break-inside: avoid;
