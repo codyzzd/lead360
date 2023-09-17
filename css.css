@@ -66,26 +66,44 @@
   opacity: 0.5;
 }
 
-@media (max-width: 767px) {
+/* Estilo para a cor roxa no restante da tela */
+.splash {
+  background-color: #6929f3;
+  /*background-image: url('/i/back_login.jpg');*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100vh !important;
 }
 
-/* Extra Small Devices (phones, less than 576px) */
-@media (max-width: 575.98px) {
+.logo {
+  width: 224px;
+}
+
+.splash {
+  height: auto;
+}
+
+h1.display-3 {
+  font-size: 2rem;
+}
+
+/* Small Devices (phones, 576px and up) */
+@media (min-width: 576px) {
   #tabela-rel i {
     font-size: 8px;
   }
 }
 
-/* Small Devices (phones, 576px and up) */
-@media (min-width: 576px) and (max-width: 767.98px) {
-}
-
 /* Medium Devices (tablets, 768px and up) */
-@media (min-width: 768px) and (max-width: 991.98px) {
+@media (min-width: 768px) {
+  h1.display-3 {
+    font-size: 1.8rem;
+  }
 }
 
 /* Large Devices (desktops, 992px and up) */
-@media (min-width: 992px) and (max-width: 1199.98px) {
+@media (min-width: 992px) {
 }
 
 /* Extra Large Devices (large desktops, 1200px and up) */

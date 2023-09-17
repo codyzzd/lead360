@@ -11,41 +11,7 @@
   </head>
 
   <body>
-    <style>
-      /* Estilo para a cor roxa no restante da tela */
-      .splash {
-        background-color: #6929F3;
-        /*background-image: url('/i/back_login.jpg');*/
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-        height: 100vh !important;
-      }
-
-      .logo {
-        width: 224px;
-      }
-
-      @media (max-width: 844px) {
-
-        /*.splash {
-          height: auto;
-        }*/
-        h1.display-3 {
-          font-size: 1.8rem;
-        }
-      }
-
-      @media (max-width: 390px) {
-        .splash {
-          height: auto;
-        }
-
-        h1.display-3 {
-          font-size: 2rem;
-        }
-      }
-    </style>
+   
     <? include '../include/_toasters.php' ?>
 
     <div class="container-fluid">
@@ -61,7 +27,7 @@
 
         <!-- Coluna para o login -->
         <div class="col-xl-4 col-lg-5 col-md-7 col-sm-5 p-5">
-         
+
             <h2 class="mb-3">Login</h2>
 
             <form id="loginForm">
