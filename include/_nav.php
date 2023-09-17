@@ -41,7 +41,10 @@
           <ul class="dropdown-menu">
             <li>
               <a class="dropdown-item"
-                 href="#">Ajustes</a>
+                 href="#">Usuários</a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
             </li>
             <li>
               <a class="dropdown-item"
