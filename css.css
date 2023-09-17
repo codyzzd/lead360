@@ -73,7 +73,6 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  height: 100vh !important;
 }
 
 .logo {
@@ -104,6 +103,9 @@ h1.display-3 {
 
 /* Large Devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+  .splash {
+    height: 100vh !important;
+  }
 }
 
 /* Extra Large Devices (large desktops, 1200px and up) */
