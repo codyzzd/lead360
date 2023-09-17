@@ -82,36 +82,34 @@
 .splash {
   height: auto !important;
 }
-
 h1.display-3 {
-  font-size: 2rem !important;
+  font-size: 1.8rem !important;
 }
 
-/* Small Devices (phones, 576px and up) */
+/* ------------------ Small Devices (phones, 576px and up) ------------------ */
 @media (min-width: 576px) {
   #tabela-rel i {
     font-size: 8px;
   }
 }
 
-/* Medium Devices (tablets, 768px and up) */
+/* ----------------- Medium Devices (tablets, 768px and up) ----------------- */
 @media (min-width: 768px) {
-  h1.display-3 {
-    font-size: 1.8rem;
-  }
 }
 
-/* Large Devices (desktops, 992px and up) */
+/* ----------------- Large Devices (desktops, 992px and up) ----------------- */
 @media (min-width: 992px) {
   .splash {
     height: 100vh !important;
   }
 }
 
-/* Extra Large Devices (large desktops, 1200px and up) */
+ /* ----------- Extra Large Devices (large desktops, 1200px and up) ---------- */
 @media (min-width: 1200px) {
 }
 
+
+/* ----------------------------- modo impressao ----------------------------- */
 @media print {
   .resultados {
     page-break-inside: avoid;
