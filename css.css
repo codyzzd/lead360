@@ -81,7 +81,7 @@
 }
 
 .splash {
-  height: auto;
+  height: auto !important;
 }
 
 h1.display-3 {
