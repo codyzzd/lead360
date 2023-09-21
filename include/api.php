@@ -627,6 +627,10 @@ if ($indicador == 'group_edit') {
   //echo json_encode($data);
 }
 
+if ($indicador == 'group_new_csv'){
+
+}
+
 /* --------------------------------- Outros --------------------------------- */
 if ($indicador == 'rel_view') {
   $id_grupo = $_POST['id_grupo'];

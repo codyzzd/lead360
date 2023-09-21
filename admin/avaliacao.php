@@ -437,8 +437,8 @@ while (
       </div>
     </div>
 
-     <!-- modal criar CSV -->
-     <div class="modal fade"
+    <!-- modal criar CSV -->
+    <div class="modal fade"
          tabindex="-1"
          id="modal_link_csv">
       <div class="modal-dialog modal-dialog-centered">
@@ -451,7 +451,7 @@ while (
                     aria-label="Close"
                     id="modal_new_close_csv"></button>
           </div>
-          <form id="form_new_csv">
+          <form id="form_link_csv">
             <div class="modal-body">
               <div id="csv_result"
                    class="mb-3"></div>
@@ -491,6 +491,78 @@ while (
 
     <script>
       $(document).ready(function () {
+
+        //CSV
+        $("#form_link_csv").submit(function (event) {
+          event.preventDefault(); // Impedir que o formulário seja enviado tradicionalmente
+          var user_id = "<?php echo $_SESSION['user_id']; ?>"; // Obtém o ID do usuário da sessão
+
+          //apaga o que tem dentro
+          $('#csv_result').empty();
+
+          // Obter o arquivo selecionado
+          var file = $("#formFile")[0].files[0];
+
+          // Criar um objeto FormData para enviar o arquivo para o arquivo PHP
+          var formData = new FormData();
+          formData.append("file", file);
+          formData.append("indicador", "group_new_csv");
+          formData.append("id_creator", user_id);
+
+          // Enviar o arquivo para o arquivo PHP
+          $.ajax({
+            url: "../include/api.php",
+            type: "POST",
+            data: formData,
+            cache: false,
+            processData: false,
+            contentType: false,
+            success: function (resultados) {
+              // Executar alguma ação após o sucesso
+              //$(".progress-bar").css("width", "100%");
+              $(".progress-bar").css("width", "0%");
+              criarToastmini('success', 'CSV incluido!');
+              atualizarTabela(); // Atualizar a tabela após a criação da avaliação
+
+              // Adicionar os resultados ao elemento #result_csv
+              $("#csv_result").append(`
+                <table class='table'>
+                <tr>
+                <th>Participantes</th>
+                <th>Quantidade</th>
+                </tr>
+                <tr>
+                <td>Válidos</td>
+                <td>${resultados.qtd_validos}</td>
+                </tr>
+                <tr>
+                <td>Inválidos</td>
+                <td>${resultados.qtd_invalidos}</td>
+                </tr>
+                <tr>
+                <td>Duplicados</td>
+                <td>${resultados.qtd_duplicados}</td>
+                </tr>
+                </table>
+                `);
+
+            },
+            error: function (err) {
+              // Executar alguma ação em caso de erro
+              criarToastmini('danger', err);
+            },
+            beforeSend: function () {
+              // Iniciar o progress bar
+              $(".progress-bar").css("width", "0%");
+            },
+            progress: function (progress) {
+              // Atualizar o progress bar
+              $(".progress-bar").css("width", progress + "%");
+              //console.log(progress);
+            }
+          });
+        });
+
 
         // Toggle subtitles
         $('#esc_part').change(function () {
