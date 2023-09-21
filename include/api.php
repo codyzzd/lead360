@@ -340,7 +340,7 @@ if ($indicador == 'group_tabela') {
   $aval_id = $_POST['aval_id'];
 
   // Buscar grupos
-  $query_grupos = "SELECT id, id_aval, id_creator FROM grupos WHERE id_creator = '$user_id'";
+  $query_grupos = "SELECT id, id_aval, id_creator FROM grupos WHERE id_aval = '$aval_id'";
   $result_grupos = $conn->query($query_grupos);
 
   $grupos_data = array();
@@ -625,6 +625,10 @@ if ($indicador == 'group_edit') {
   //devolve dados
   //header('Content-Type: application/json');
   //echo json_encode($data);
+}
+
+if ($indicador == 'group_new_csv') {
+
 }
 
 /* --------------------------------- Outros --------------------------------- */

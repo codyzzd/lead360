@@ -418,32 +418,32 @@
             contentType: false,
             success: function (resultados) {
               // Executar alguma ação após o sucesso
-              $(".progress-bar").css("width", "100%");
+              //$(".progress-bar").css("width", "100%");
               $(".progress-bar").css("width", "0%");
               criarToastmini('success', 'CSV incluido!');
               atualizarTabela(); // Atualizar a tabela após a criação da avaliação
 
               // Adicionar os resultados ao elemento #result_csv
               $("#csv_result").append(`
-  <table class='table'>
-    <tr>
-      <th>Participantes</th>
-      <th>Quantidade</th>
-    </tr>
-    <tr>
-      <td>Válidos</td>
-      <td>${resultados.qtd_validos}</td>
-    </tr>
-    <tr>
-      <td>Inválidos</td>
-      <td>${resultados.qtd_invalidos}</td>
-    </tr>
-    <tr>
-      <td>Duplicados</td>
-      <td>${resultados.qtd_duplicados}</td>
-    </tr>
-  </table>
-`);
+                <table class='table'>
+                <tr>
+                <th>Participantes</th>
+                <th>Quantidade</th>
+                </tr>
+                <tr>
+                <td>Válidos</td>
+                <td>${resultados.qtd_validos}</td>
+                </tr>
+                <tr>
+                <td>Inválidos</td>
+                <td>${resultados.qtd_invalidos}</td>
+                </tr>
+                <tr>
+                <td>Duplicados</td>
+                <td>${resultados.qtd_duplicados}</td>
+                </tr>
+                </table>
+                `);
 
             },
             error: function (err) {
