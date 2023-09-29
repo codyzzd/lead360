@@ -627,7 +627,11 @@ if ($indicador == 'group_edit') {
   //echo json_encode($data);
 }
 
+<<<<<<< HEAD
 if ($indicador == 'group_new_csv') {
+=======
+if ($indicador == 'group_new_csv'){
+>>>>>>> 150d4e878ec98087c4faca2f4a7b84346a663e63
 
 }
 
