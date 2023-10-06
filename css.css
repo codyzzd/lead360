@@ -46,7 +46,7 @@
 }
 .pergunta p {
   font-weight: bold;
-}
+} /*
 .nota_1 {
   background-color: #ff6b6b !important;
 }
@@ -61,7 +61,17 @@
 }
 .nota_5 {
   background-color: #98fb98 !important;
+}*/
+.nota_1 {
+  background-color: #ff6b6b !important;
 }
+.nota_2 {
+  background-color: #ffd700 !important;
+}
+.nota_3 {
+  background-color: #98fb98 !important;
+}
+
 #tabela-rel i {
   opacity: 0.5;
 }
