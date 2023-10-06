@@ -698,14 +698,14 @@ if ($indicador == 'rel_view') {
     $nivel1 = $quant_perguntas;
     $nivel2 = $quant_perguntas * 2;
     $nivel3 = $quant_perguntas * 3;
-    $nivel4 = $quant_perguntas * 4;
-    $nivel5 = $quant_perguntas * 5;
+    //$nivel4 = $quant_perguntas * 4;
+    //$nivel5 = $quant_perguntas * 5;
 
-    if ($nota >= $nivel5) {
-      return "5";
-    } elseif ($nota >= $nivel4) {
-      return "4";
-    } elseif ($nota >= $nivel3) {
+    if ($nota >= $nivel3) {
+      /*  return "5";
+      } elseif ($nota >= $nivel4) {
+        return "4";
+      } elseif ($nota >= $nivel3) {*/
       return "3";
     } elseif ($nota >= $nivel2) {
       return "2";
