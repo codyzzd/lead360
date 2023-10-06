@@ -696,8 +696,8 @@ if ($indicador == 'rel_view') {
   {
     // Determinar niveis
     $nivel1 = $quant_perguntas;
-    $nivel2 = $quant_perguntas * 3.5;
-    $nivel3 = $quant_perguntas * 7;
+    $nivel2 = $quant_perguntas * 2.5;
+    $nivel3 = $quant_perguntas * 5;
     //$nivel4 = $quant_perguntas * 4;
     //$nivel5 = $quant_perguntas * 5;
 
