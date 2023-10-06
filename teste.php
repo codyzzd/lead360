@@ -85,10 +85,11 @@ if ($result->num_rows > 0) {
       <div class="container-fluid">
         <a class="navbar-brand"
            href="#">
-          <img src="/logonav.png"
+          <img src="/i/logonav.png"
                alt="Logo"
                height="24"
-               class="d-inline-block align-text-top">LiderScan - Avaliando: <? echo $data_survey[0]["nome"]; ?>
+               class="d-inline-block align-text-top me-2">LiderScan - Avaliando:
+          <? echo $data_survey[0]["nome"]; ?>
         </a>
 
     </nav>
