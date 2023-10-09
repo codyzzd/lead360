@@ -702,11 +702,11 @@ if ($indicador == 'rel_view') {
     $nivel5 = $quant_perguntas * 5;
 
     if ($nota >= $nivel5) {
-      return "3";
+      return "1";
     } elseif ($nota >= $nivel4) {
-      return "2";
+      return "1";
     } elseif ($nota >= $nivel3) {
-      return "2";
+      return "1";
     } elseif ($nota >= $nivel2) {
       return "1";
     } elseif ($nota >= $nivel1) {
