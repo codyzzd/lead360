@@ -31,7 +31,7 @@ $dados_grupo = $q_grupo->fetch_assoc();
       <div class="container-fluid">
         <a class="navbar-brand"
            href="#">
-          <img src="/logonav.png"
+          <img src="/i/logonav.png"
                alt="Logo"
                height="24"
                class="d-inline-block align-text-top">LiderScan - Relatório detalhado
@@ -144,7 +144,7 @@ $dados_grupo = $q_grupo->fetch_assoc();
 
           // Divide o valor em valor_outros pela quantidade de participantes únicos - 1
           foreach ($perguntasAgrupadas as &$perguntaAgrupada) {
-            $perguntaAgrupada['valor_outros'] /= ($numParticipantesUnicos - 1);
+            $perguntaAgrupada['valor_outros'] = intval($perguntaAgrupada['valor_outros'] / ($numParticipantesUnicos - 1));
           }
 
 
