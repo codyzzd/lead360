@@ -157,20 +157,15 @@ $dados_grupo = $q_grupo->fetch_assoc();
           // Inicialize um array para armazenar as perguntas agrupadas por categoria
           $perguntasPorCategoria = [];
 
-          // Itere sobre o array de perguntas agrupadas
+          // Agrupe as perguntas por categoria
           foreach ($perguntasAgrupadas as $perguntaAgrupada) {
             // Obtenha a categoria associada à pergunta
             $categoria = $perguntaAgrupada['categoria'];
 
-            // Verifique se o array de perguntas para a categoria já existe
-            if (!isset($perguntasPorCategoria[$categoria])) {
-              // Se não existir, inicialize um array vazio para a categoria
-              $perguntasPorCategoria[$categoria] = [];
-            }
-
-            // Adicione a pergunta ao array de perguntas para a categoria
+            // Adicione a pergunta ao array da categoria
             $perguntasPorCategoria[$categoria][] = $perguntaAgrupada;
           }
+
           echo '<hr>';
           echo '<pre>';
           print_r($perguntasPorCategoria);
