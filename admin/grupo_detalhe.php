@@ -110,6 +110,9 @@ $dados_grupo = $q_grupo->fetch_assoc();
           // Inicialize um array para contar o número de participantes únicos
           $participantesUnicos = [];
 
+          // Inicialize a categoria fora do loop
+          $categoria = null;
+
           foreach ($info_perguntas as $info) {
             $pergunta = $info['pergunta'];
             $valor = $info['valor'];
@@ -122,10 +125,14 @@ $dados_grupo = $q_grupo->fetch_assoc();
 
             // Verifique se a pergunta já existe no array de perguntas agrupadas
             if (!isset($perguntasAgrupadas[$pergunta])) {
+              // Inicialize a categoria apenas se a pergunta ainda não existe
+              $categoria = $info['categoria'];
+
               $perguntasAgrupadas[$pergunta] = [
                 'pergunta' => $pergunta,
                 'valor_lider' => 0,
-                'valor_outros' => 0
+                'valor_outros' => 0,
+                'categoria' => $categoria,
               ];
             }
 
@@ -135,8 +142,6 @@ $dados_grupo = $q_grupo->fetch_assoc();
             } else {
               $perguntasAgrupadas[$pergunta]['valor_outros'] += $valor;
             }
-            // Adicione a chave 'categoria'
-            $perguntasAgrupadas[$pergunta]['categoria'] = $info['categoria'];
           }
 
           // Calcula a quantidade de participantes únicos
@@ -146,6 +151,7 @@ $dados_grupo = $q_grupo->fetch_assoc();
           foreach ($perguntasAgrupadas as &$perguntaAgrupada) {
             $perguntaAgrupada['valor_outros'] = intval($perguntaAgrupada['valor_outros'] / ($numParticipantesUnicos - 1));
           }
+
 
 
           // Exiba o array agrupado na tela
