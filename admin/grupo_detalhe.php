@@ -148,7 +148,7 @@ $dados_grupo = $q_grupo->fetch_assoc();
           $numParticipantesUnicos = count($participantesUnicos);
 
           // Divide o valor em valor_outros pela quantidade de participantes únicos - 1
-          foreach ($perguntasAgrupadas as $perguntaAgrupada) {
+          foreach ($perguntasAgrupadas as &$perguntaAgrupada) {
             $perguntaAgrupada['valor_outros'] = intval($perguntaAgrupada['valor_outros'] / ($numParticipantesUnicos - 1));
           }
 
@@ -164,7 +164,7 @@ $dados_grupo = $q_grupo->fetch_assoc();
           $perguntasPorCategoria = [];
 
           // Agrupe as perguntas por categoria
-          foreach ($perguntasAgrupadas as $perguntaAgrupada) {
+          foreach ($perguntasAgrupadas as &$perguntaAgrupada) {
             // Obtenha a categoria associada à pergunta
             $categoria = $perguntaAgrupada['categoria'];
 
