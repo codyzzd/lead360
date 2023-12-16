@@ -168,9 +168,9 @@ $dados_grupo = $q_grupo->fetch_assoc();
             $perguntasPorCategoria[$categoria][] = $perguntaAgrupada;
           }
 
-          echo '<pre>';
+          /*echo '<pre>';
           print_r($perguntasPorCategoria);
-          echo '</pre>';
+          echo '</pre>';*/
           ?>
 
           <?php foreach ($perguntasPorCategoria as $categoria => $perguntas): ?>
