@@ -99,9 +99,9 @@ $dados_grupo = $q_grupo->fetch_assoc();
             }
 
             // Exiba o array agrupado na tela
-            echo '<pre>';
+            /*echo '<pre>';
             print_r($info_perguntas);
-            echo '</pre>';
+            echo '</pre>';*/
           }
 
           // Inicialize um novo array para agrupar as perguntas
@@ -149,9 +149,9 @@ $dados_grupo = $q_grupo->fetch_assoc();
 
 
           // Exiba o array agrupado na tela
-          /*echo '<pre>';
+          echo '<pre>';
           print_r($perguntasAgrupadas);
-          echo '</pre>';*/
+          echo '</pre>';
           ?>
           <?
           // Inicialize um array para armazenar as perguntas agrupadas por categoria
