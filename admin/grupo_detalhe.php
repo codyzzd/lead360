@@ -172,13 +172,13 @@ $dados_grupo = $q_grupo->fetch_assoc();
             $perguntasPorCategoria[$categoria][] = $perguntaAgrupada;
           }
 
-          echo '<pre>';
+          /*echo '<pre>';
           print_r($perguntasPorCategoria);
-          echo '</pre>';
+          echo '</pre>';*/
           ?>
 
           <?php foreach ($perguntasPorCategoria as $categoria => $perguntas): ?>
-
+            <!-- Início da tabela para a categoria <?php echo $categoria; ?> -->
             <table class="table table-hover mb-5 resultados">
               <thead>
                 <tr>
@@ -193,12 +193,14 @@ $dados_grupo = $q_grupo->fetch_assoc();
               </thead>
               <tbody>
                 <?php foreach ($perguntas as $perguntaAgrupada): ?>
+                  <!-- Início de uma linha da tabela para a pergunta <?php echo $perguntaAgrupada['pergunta']; ?> -->
                   <tr>
                     <td>
                       <?php echo $perguntaAgrupada['pergunta']; ?>
                     </td>
+                    <!-- Comentado porque a categoria já está sendo exibida na tabela acima -->
                     <!--<td>
-                      <?php echo $perguntaAgrupada['categoria']; ?>
+                        <?php echo $perguntaAgrupada['categoria']; ?>
                     </td>-->
                     <td class=" text-end">
                       <?php echo $perguntaAgrupada['valor_lider']; ?>
@@ -207,9 +209,11 @@ $dados_grupo = $q_grupo->fetch_assoc();
                       <?php echo $perguntaAgrupada['valor_outros']; ?>
                     </td>
                   </tr>
+                  <!-- Fim da linha da tabela -->
                 <?php endforeach; ?>
               </tbody>
             </table>
+            <!-- Fim da tabela para a categoria -->
           <?php endforeach; ?>
 
           <?php include '../include/_jscripts.php' ?>
