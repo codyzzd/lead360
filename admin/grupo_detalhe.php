@@ -149,7 +149,7 @@ $dados_grupo = $q_grupo->fetch_assoc();
 
 
           // Exiba o array agrupado na tela
-          echo '<pre style="color:blue">';
+          echo '<pre>';
           print_r($perguntasAgrupadas);
           echo '</pre>';
           ?>
@@ -171,8 +171,8 @@ $dados_grupo = $q_grupo->fetch_assoc();
             // Adicione a pergunta ao array de perguntas para a categoria
             $perguntasPorCategoria[$categoria][] = $perguntaAgrupada;
           }
-
-          echo '<pre style="color:red">';
+          echo '<hr>';
+          echo '<pre>';
           print_r($perguntasPorCategoria);
           echo '</pre>';
           ?>
